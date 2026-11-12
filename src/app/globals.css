@@ -53,7 +53,7 @@ header.solid{position:sticky;top:0;background:#1f150f}
 .ss .arr[disabled]{opacity:0!important;pointer-events:none}
 .ss .dots{position:absolute;left:0;right:0;bottom:5.5px;display:flex;justify-content:center;pointer-events:none}
 .ss .dots button{pointer-events:auto;position:relative;width:24px;height:24px;padding:0;border:0;background:transparent;cursor:pointer}
-.ss .dots button::before{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:rgba(239,227,212,.5);transition:background .2s,transform .2s}
+.ss .dots button::before{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:rgba(239,227,212,.5);box-shadow:0 0 0 1px rgba(42,29,21,.35);transition:background .2s,transform .2s}
 .ss .dots button.on::before{background:#efe3d4;transform:scale(1.2)}
 @media (hover:none){.ss .arr{display:none}}
 .card-link{display:flex;flex-direction:column;gap:6px;color:inherit}
