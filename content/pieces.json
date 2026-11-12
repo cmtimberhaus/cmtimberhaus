@@ -1,0 +1,1037 @@
+[
+ {
+  "slug": "the-yorkshire",
+  "name": "The Yorkshire",
+  "category": "dining",
+  "order": 0,
+  "cardSubtitle": "Recycled Messmate, blackened steel",
+  "subtitle": "Recycled Messmate, blackened steel",
+  "cardPrice": "From $4,300",
+  "pagePrice": "From $4,300",
+  "priceNote": null,
+  "description": [
+   "A solid timber top on a blackened steel base. Shown in recycled Messmate, with every mark and gum vein telling its story. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Recycled Messmate"
+   },
+   {
+    "label": "Finish",
+    "value": "Blackened steel base"
+   },
+   {
+    "label": "Size",
+    "value": "Made to your measurements"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "photo-03",
+   "table-01",
+   "table-02",
+   "photo-04",
+   "table-03"
+  ],
+  "galleryImages": [
+   "photo-03",
+   "table-01",
+   "table-02",
+   "photo-04",
+   "table-03"
+  ],
+  "galleryLayout": "n5",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-rex",
+  "name": "The Rex",
+  "category": "dining",
+  "order": 1,
+  "cardSubtitle": "Blackbutt",
+  "subtitle": "Solid Blackbutt",
+  "cardPrice": "From $400 each",
+  "pagePrice": "From $400 each",
+  "priceNote": "Or $3,000 for a set of 8, saving $200",
+  "description": [
+   "A simple, sturdy dining chair with a shaped seat, made to sit perfectly alongside our tables. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Blackbutt"
+   },
+   {
+    "label": "Size",
+    "value": "Made to your measurements"
+   }
+  ],
+  "availableTimbers": [
+   "Blackbutt",
+   "Messmate",
+   "American Oak",
+   "Walnut"
+  ],
+  "cardImages": [
+   "chair-01",
+   "chair-02",
+   "chair-03",
+   "chair-04",
+   "chair-05",
+   "chair-06"
+  ],
+  "galleryImages": [
+   "chair-01",
+   "chair-02",
+   "chair-03",
+   "chair-04",
+   "chair-05",
+   "chair-06"
+  ],
+  "galleryLayout": "3",
+  "galleryLead": null,
+  "note": "Shown in Blackbutt. Every chair is made to order in the timber you choose."
+ },
+ {
+  "slug": "the-coombes",
+  "name": "The Coombes",
+  "category": "dining",
+  "order": 2,
+  "cardSubtitle": "Solid American Oak",
+  "subtitle": "Solid American Oak",
+  "cardPrice": "From $3,900",
+  "pagePrice": "From $3,900",
+  "priceNote": null,
+  "description": [
+   "A classic dining table on four strong square legs, with the top sitting just proud of the frame for a crisp shadow line. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "American Oak"
+   },
+   {
+    "label": "Size",
+    "value": "Made to your measurements"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "coombes-00-card",
+   "coombes-01",
+   "coombes-02"
+  ],
+  "galleryImages": [
+   "coombes-00",
+   "coombes-01",
+   "coombes-02"
+  ],
+  "galleryLayout": "n2",
+  "galleryLead": 0,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-elevation",
+  "name": "The Elevation",
+  "category": "dining",
+  "order": 3,
+  "cardSubtitle": "Solid American Oak",
+  "subtitle": "Solid American Oak",
+  "cardPrice": "From $3,900",
+  "pagePrice": "From $3,900",
+  "priceNote": null,
+  "description": [
+   "A softer take on the dining table, with rounded legs, gently curved corners and a fine shadow line under the top. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "American Oak"
+   },
+   {
+    "label": "Size",
+    "value": "Made to your measurements"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "elevation-01-card",
+   "elevation-02",
+   "elevation-03"
+  ],
+  "galleryImages": [
+   "elevation-01",
+   "elevation-02",
+   "elevation-03"
+  ],
+  "galleryLayout": "n2",
+  "galleryLead": 0,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-ruby",
+  "name": "The Ruby",
+  "category": "dining",
+  "order": 4,
+  "cardSubtitle": "Solid American Oak",
+  "subtitle": "Solid American Oak",
+  "cardPrice": "From $3,650",
+  "pagePrice": "From $3,650",
+  "priceNote": null,
+  "description": [
+   "A clean, modern dining table with softly rounded legs and a top that sits just proud of a slim frame. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Size",
+    "value": "Made to your measurements"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "ruby-01",
+   "ruby-02",
+   "ruby-03b",
+   "ruby-05"
+  ],
+  "galleryImages": [
+   "ruby-01",
+   "ruby-02",
+   "ruby-03b",
+   "ruby-05"
+  ],
+  "galleryLayout": "n4",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-waratah",
+  "name": "The Waratah",
+  "category": "living",
+  "order": 0,
+  "cardSubtitle": "Solid Blackwood",
+  "subtitle": "Solid Blackwood",
+  "cardPrice": "From $500 · Pair $850",
+  "pagePrice": "From $500 each",
+  "priceNote": "Or $850 for a pair, saving $150",
+  "description": [
+   "A multi-purpose stool made from thick solid slabs, with a footrest that doubles as a shelf. Use it at the kitchen bench, beside the bed or as a display piece. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Solid Blackwood"
+   },
+   {
+    "label": "Use",
+    "value": "Stool, bedside table, side table or display"
+   },
+   {
+    "label": "Size",
+    "value": "Made to suit your bench height"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "waratah-04",
+   "waratah-01",
+   "waratah-05",
+   "waratah-02",
+   "waratah-03"
+  ],
+  "galleryImages": [
+   "waratah-04",
+   "waratah-01",
+   "waratah-05",
+   "waratah-02",
+   "waratah-03"
+  ],
+  "galleryLayout": "n5",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-annabella",
+  "name": "The Annabella",
+  "category": "living",
+  "order": 1,
+  "cardSubtitle": "Solid American Oak",
+  "subtitle": "Solid American Oak",
+  "cardPrice": "From $550",
+  "pagePrice": "From $550",
+  "priceNote": null,
+  "description": [
+   "A round coffee table on four square legs with a cross-shaped stretcher. Equally at home in front of the sofa or as a side table. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "American Oak"
+   },
+   {
+    "label": "Use",
+    "value": "Coffee table or side table"
+   },
+   {
+    "label": "Size",
+    "value": "Made to suit your space"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "photo-07",
+   "round-01",
+   "round-02"
+  ],
+  "galleryImages": [
+   "photo-07",
+   "round-01",
+   "round-02"
+  ],
+  "galleryLayout": "3",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-ron",
+  "name": "The Ron",
+  "category": "living",
+  "order": 2,
+  "cardSubtitle": "Recycled Messmate",
+  "subtitle": "Solid Recycled Messmate",
+  "cardPrice": "From $1,400",
+  "pagePrice": "From $1,400",
+  "priceNote": null,
+  "description": [
+   "A long, slim console with a solid recycled Messmate top on blackened steel legs. Ideal for hallways and entries, with every gum vein and nail hole on show. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Recycled Messmate"
+   },
+   {
+    "label": "Base",
+    "value": "Blackened steel legs"
+   },
+   {
+    "label": "Use",
+    "value": "Hall, entry or sofa console"
+   },
+   {
+    "label": "Size",
+    "value": "Shown at 2500 mm long, made to suit your space"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "ron-01",
+   "ron-02",
+   "ron-03"
+  ],
+  "galleryImages": [
+   "ron-01",
+   "ron-02",
+   "ron-03"
+  ],
+  "galleryLayout": "3",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-daisy",
+  "name": "The Daisy",
+  "category": "living",
+  "order": 3,
+  "cardSubtitle": "Floating TV unit, Messmate",
+  "subtitle": "Solid Messmate",
+  "cardPrice": "From $2,090",
+  "pagePrice": "From $2,090",
+  "priceNote": null,
+  "description": [
+   "A floating TV unit with four handle-free doors, the grain running unbroken across the front. Plenty of hidden storage for consoles and cables. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Messmate"
+   },
+   {
+    "label": "Storage",
+    "value": "Four doors with storage behind"
+   },
+   {
+    "label": "Mounting",
+    "value": "Wall-mounted, floating"
+   },
+   {
+    "label": "Size",
+    "value": "Made to suit your wall"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "daisy-00-card",
+   "grevillea-00",
+   "grevillea-01",
+   "grevillea-02",
+   "grevillea-03",
+   "grevillea-04",
+   "grevillea-05"
+  ],
+  "galleryImages": [
+   "daisy-00",
+   "grevillea-00",
+   "grevillea-01",
+   "grevillea-02",
+   "grevillea-03",
+   "grevillea-04",
+   "grevillea-05"
+  ],
+  "galleryLayout": "3",
+  "galleryLead": 0,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "mr-elliot",
+  "name": "Mr Elliot",
+  "category": "living",
+  "order": 4,
+  "cardSubtitle": "Low TV unit, Messmate",
+  "subtitle": "Solid Messmate",
+  "cardPrice": "From $2,090",
+  "pagePrice": "From $2,090",
+  "priceNote": null,
+  "description": [
+   "A long, low TV unit with four handle-free doors and the top wrapping into the sides. Hidden storage keeps the living room tidy. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Messmate"
+   },
+   {
+    "label": "Storage",
+    "value": "Four doors with storage behind"
+   },
+   {
+    "label": "Size",
+    "value": "Made to suit your wall"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "elliot-00-card",
+   "elliot-01",
+   "elliot-02",
+   "elliot-03"
+  ],
+  "galleryImages": [
+   "elliot-00",
+   "elliot-01",
+   "elliot-02",
+   "elliot-03"
+  ],
+  "galleryLayout": "wide",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-zoltan",
+  "name": "The Zoltan",
+  "category": "living",
+  "order": 5,
+  "cardSubtitle": "Bedside tables, Messmate",
+  "subtitle": "Solid Messmate",
+  "cardPrice": "From $1,200 a pair",
+  "pagePrice": "From $1,200 a pair",
+  "priceNote": null,
+  "description": [
+   "A pair of bedside tables with a single drawer and a black round pull, sitting on an open timber frame base. Natural gum veins in the timber give each one its own character. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Messmate"
+   },
+   {
+    "label": "Includes",
+    "value": "Set of 2 bedside tables"
+   },
+   {
+    "label": "Storage",
+    "value": "One drawer each"
+   },
+   {
+    "label": "Size",
+    "value": "Made to suit your room"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "zoltan-00-card",
+   "zoltan-02",
+   "zoltan-03",
+   "zoltan-04",
+   "zoltan-05"
+  ],
+  "galleryImages": [
+   "zoltan-00",
+   "zoltan-02",
+   "zoltan-03",
+   "zoltan-04",
+   "zoltan-05"
+  ],
+  "galleryLayout": "n5",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-murphy",
+  "name": "The Murphy",
+  "category": "living",
+  "order": 6,
+  "cardSubtitle": "New Messmate",
+  "subtitle": "New Messmate",
+  "cardPrice": "From $1,300",
+  "pagePrice": "From $1,300",
+  "priceNote": null,
+  "description": [
+   "A hall console with two handle-free drawers and an open base below. Perfect for keys, mail and the everyday drop-zone. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "New Messmate"
+   },
+   {
+    "label": "Storage",
+    "value": "Two drawers and an open base"
+   },
+   {
+    "label": "Use",
+    "value": "Hall, entry or sofa console"
+   },
+   {
+    "label": "Size",
+    "value": "Made to suit your space"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "murphy-00-card",
+   "wattle-01",
+   "wattle-02",
+   "wattle-03",
+   "wattle-04",
+   "wattle-05"
+  ],
+  "galleryImages": [
+   "murphy-00",
+   "wattle-01",
+   "wattle-02",
+   "wattle-03",
+   "wattle-04",
+   "wattle-05"
+  ],
+  "galleryLayout": "n5",
+  "galleryLead": 0,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-nelly",
+  "name": "The Nelly",
+  "category": "living",
+  "order": 7,
+  "cardSubtitle": "Wall-hung console, Messmate",
+  "subtitle": "Solid Messmate",
+  "cardPrice": "From $800 installed",
+  "pagePrice": "From $800",
+  "priceNote": "Including installation",
+  "description": [
+   "A slim wall-hung console fixed at one end and resting on a single waterfall leg at the other. Ideal for narrow entries and hallways. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Messmate"
+   },
+   {
+    "label": "Mounting",
+    "value": "Wall-fixed with one waterfall leg"
+   },
+   {
+    "label": "Use",
+    "value": "Entry, hallway or behind a sofa"
+   },
+   {
+    "label": "Size",
+    "value": "Made to suit your wall"
+   },
+   {
+    "label": "Installation",
+    "value": "Included"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "nelly-01",
+   "nelly-02",
+   "nelly-03",
+   "nelly-04"
+  ],
+  "galleryImages": [
+   "nelly-01",
+   "nelly-02",
+   "nelly-03",
+   "nelly-04"
+  ],
+  "galleryLayout": "n4",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-soo",
+  "name": "The Soo",
+  "category": "living",
+  "order": 8,
+  "cardSubtitle": "Plinth, Messmate",
+  "subtitle": "Solid Messmate",
+  "cardPrice": "From $225",
+  "pagePrice": "From $225",
+  "priceNote": null,
+  "description": [
+   "A tall, slender plinth to lift a plant, a vase or a favourite object, open front and back to keep it light. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Messmate"
+   },
+   {
+    "label": "Use",
+    "value": "Plant stand, display or side table"
+   },
+   {
+    "label": "Size",
+    "value": "Made to your height"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "soo-01",
+   "soo-03",
+   "soo-04"
+  ],
+  "galleryImages": [
+   "soo-01",
+   "soo-03",
+   "soo-04"
+  ],
+  "galleryLayout": "3",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "cubes",
+  "name": "Cubes",
+  "category": "living",
+  "order": 9,
+  "cardSubtitle": "Set of three nesting cubes",
+  "subtitle": "Set of three nesting cubes",
+  "cardPrice": "From $600",
+  "pagePrice": "From $600",
+  "priceNote": null,
+  "description": [
+   "Three open cubes in graduated sizes that nest inside each other. Use them together or apart as side tables, stools or shelving. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Includes",
+    "value": "Three nesting cubes"
+   },
+   {
+    "label": "Use",
+    "value": "Side tables, stools, display or shelving"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "cubes-00",
+   "cubes-01",
+   "cubes-02"
+  ],
+  "galleryImages": [
+   "cubes-00",
+   "cubes-01",
+   "cubes-02"
+  ],
+  "galleryLayout": "3",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-study-nook",
+  "name": "The Study Nook",
+  "category": "living",
+  "order": 10,
+  "cardSubtitle": "Floating desk & shelves",
+  "subtitle": "Floating desk & shelves",
+  "cardPrice": "From $900 installed",
+  "pagePrice": "From $900",
+  "priceNote": "Including installation",
+  "description": [
+   "A floating desk and matching shelves, built wall to wall to turn an alcove into a neat place to work. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Includes",
+    "value": "Floating desk and shelves"
+   },
+   {
+    "label": "Size",
+    "value": "Measured to fit your space"
+   },
+   {
+    "label": "Installation",
+    "value": "Included"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "nook-01",
+   "nook-02",
+   "nook-03"
+  ],
+  "galleryImages": [
+   "nook-01",
+   "nook-02",
+   "nook-03"
+  ],
+  "galleryLayout": "3",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-quin",
+  "name": "The Quin",
+  "category": "living",
+  "order": 11,
+  "cardSubtitle": "Bedside table",
+  "subtitle": "Bedside table",
+  "cardPrice": "Price on request",
+  "pagePrice": "Price on request",
+  "priceNote": null,
+  "description": [
+   "A bedside table with three handle-free drawers: a shallow one on top for the little things and two deeper ones below. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Storage",
+    "value": "Three drawers"
+   },
+   {
+    "label": "Size",
+    "value": "Made to suit your room"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "quin-01"
+  ],
+  "galleryImages": [
+   "quin-01"
+  ],
+  "galleryLayout": "n1",
+  "galleryLead": null,
+  "note": "Every piece is made to order in the timber you choose."
+ },
+ {
+  "slug": "the-moo",
+  "name": "The Moo",
+  "category": "bathroom",
+  "order": 0,
+  "cardSubtitle": "Floating vanity, Messmate",
+  "subtitle": "Solid Messmate",
+  "cardPrice": "From $1,900",
+  "pagePrice": "From $1,900",
+  "priceNote": null,
+  "description": [
+   "A floating vanity with six handle-free drawers, the gum veins flowing right across the front. Finished to suit a wet area. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Messmate"
+   },
+   {
+    "label": "Storage",
+    "value": "Six drawers"
+   },
+   {
+    "label": "Mounting",
+    "value": "Wall-hung, floating"
+   },
+   {
+    "label": "Size",
+    "value": "Made to suit your bathroom"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "moo-01",
+   "moo-02",
+   "moo-03"
+  ],
+  "galleryImages": [
+   "moo-01",
+   "moo-02",
+   "moo-03"
+  ],
+  "galleryLayout": "3",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-arnold",
+  "name": "The Arnold",
+  "category": "bathroom",
+  "order": 1,
+  "cardSubtitle": "Vanity, Messmate",
+  "subtitle": "Solid Messmate",
+  "cardPrice": "From $1,680",
+  "pagePrice": "From $1,680",
+  "priceNote": null,
+  "description": [
+   "A floor-standing vanity with two handle-free doors and a recessed kickboard, finished to suit a wet area. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Messmate"
+   },
+   {
+    "label": "Storage",
+    "value": "Two-door cupboard"
+   },
+   {
+    "label": "Base",
+    "value": "Recessed kickboard"
+   },
+   {
+    "label": "Size",
+    "value": "Made to suit your bathroom"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "arnold-01",
+   "arnold-02"
+  ],
+  "galleryImages": [
+   "arnold-01",
+   "arnold-02"
+  ],
+  "galleryLayout": "n2",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ },
+ {
+  "slug": "the-don",
+  "name": "The Don",
+  "category": "bathroom",
+  "order": 2,
+  "cardSubtitle": "Floating vanity, Australian Chestnut",
+  "subtitle": "Solid Australian Chestnut",
+  "cardPrice": "From $1,650",
+  "pagePrice": "From $1,650",
+  "priceNote": null,
+  "description": [
+   "A floating vanity with four handle-free drawers and a solid timber top that wraps down into the sides. Simple, warm and easy to keep clean, finished to suit a wet area. Made to order in our Torquay workshop."
+  ],
+  "specs": [
+   {
+    "label": "Timber",
+    "value": "Australian Chestnut"
+   },
+   {
+    "label": "Storage",
+    "value": "Four drawers"
+   },
+   {
+    "label": "Mounting",
+    "value": "Wall-hung, floating"
+   },
+   {
+    "label": "Size",
+    "value": "Made to suit your bathroom"
+   }
+  ],
+  "availableTimbers": [
+   "Messmate",
+   "Blackbutt",
+   "Australian Chestnut",
+   "Recycled Messmate",
+   "American Oak",
+   "Blackwood",
+   "Walnut"
+  ],
+  "cardImages": [
+   "don-01",
+   "don-02"
+  ],
+  "galleryImages": [
+   "don-01",
+   "don-02"
+  ],
+  "galleryLayout": "n2",
+  "galleryLead": null,
+  "note": "Prices are a guide. Your final quote is confirmed once we’ve talked through your space and finish."
+ }
+]

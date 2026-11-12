@@ -1,0 +1,103 @@
+{
+ "brand": "CM Timberhaus",
+ "tagline": "Bespoke Furniture",
+ "sub": "Handcrafted in Torquay.",
+ "location": "Torquay, Australia",
+ "est": 2026,
+ "email": "cmtimberhaus@outlook.com",
+ "instagram": "https://www.instagram.com/cmtimberhaus/",
+ "heroImage": "photo-02",
+ "categoryTiles": [
+  {
+   "category": "dining",
+   "label": "Dining",
+   "image": "photo-04"
+  },
+  {
+   "category": "living",
+   "label": "Living",
+   "image": "photo-05"
+  },
+  {
+   "category": "bathroom",
+   "label": "Bathroom",
+   "image": "moo-01"
+  }
+ ],
+ "enquireSection": {
+  "heading": "Start Your Piece",
+  "body": "Tell us what you have in mind. We'll be in touch within two business days to talk through timber, size and finish."
+ },
+ "about": {
+  "photo": "about-charlie-mia",
+  "photoAlt": "Charlie and Mia outside the CM Timberhaus workshop in Torquay",
+  "heading": "Charlie & Mia",
+  "paragraphs": [
+   "CM Timberhaus is Charlie and Mia: a husband and wife team building furniture by hand in Torquay.",
+   "Charlie has spent the past eight years working as a furniture maker, learning the craft piece by piece and joint by joint. In 2026, we decided it was time to build something of our own. CM Timberhaus is the result: a small, local workshop making solid timber furniture for the homes around us.",
+   "Mia brings the design eye. She has a real knack for shaping our pieces, from the overall proportions to the smallest details, and her attention to detail is what makes sure every piece looks and feels just right before it leaves the workshop.",
+   "We work with timbers we love, like Messmate, Blackwood and American Oak, and let the grain, gum veins and natural marks do the talking. Every piece is made to order, to the size your room needs, and built to be used every day for a very long time.",
+   "When you order from us, you deal with us directly. We’ll talk through your space, help you choose the timber and finish, and keep you in the loop until your piece arrives."
+  ],
+  "signoff": "Charlie & Mia"
+ },
+ "materialsIntro": {
+  "heading": "Our Timbers",
+  "paragraphs": [
+   "Every piece we make starts with the timber. We work with a small range of solid hardwoods, both Australian and imported, chosen for their beauty, strength and character.",
+   "Natural features like gum veins, knots and colour changes aren’t flaws to us. They’re what make each piece one of a kind. Not sure which timber suits your home? We’re always happy to talk it through and show you samples."
+  ]
+ },
+ "materials": [
+  {
+   "name": "Blackwood",
+   "kind": "Australian hardwood",
+   "description": "A Tasmanian and Victorian favourite, Blackwood ranges from golden honey to deep chocolate brown, often in the same board. Its grain can shimmer with a natural ripple, or “fiddleback”, that catches the light as you move around it.",
+   "summary": "Rich, warm and full of movement. Perfect for statement pieces like stools, side tables and dining tables.",
+   "image": "timber-blackwood"
+  },
+  {
+   "name": "Blackbutt",
+   "kind": "Australian hardwood",
+   "description": "Blackbutt is a pale, golden hardwood from the east coast, with a clean, even grain and very few knots. It’s hard, stable and durable, and its light colour keeps a room feeling bright and calm.",
+   "summary": "Light, fresh and hard-wearing. A great choice for coastal and Scandinavian-style homes.",
+   "image": "timber-blackbutt"
+  },
+  {
+   "name": "Messmate",
+   "kind": "Australian hardwood",
+   "description": "One of Victoria’s classic hardwoods, Messmate has a warm, light-brown colour with fine dark gum veins running through the grain. Every board is different, and those natural markings are what give each piece its character.",
+   "summary": "Honest, local and full of character. Our go-to timber for TV units, consoles and cabinetry.",
+   "image": "timber-messmate"
+  },
+  {
+   "name": "Recycled Messmate",
+   "kind": "Reclaimed Australian hardwood",
+   "description": "Salvaged from old buildings, beams and floors, recycled Messmate has already lived one life. Decades of age give it a deeper, richer tone, with old nail holes, gum veins and marks that tell its story.",
+   "summary": "Sustainable, one-of-a-kind and full of history. No two pieces will ever look the same.",
+   "image": "timber-recycled-messmate"
+  },
+  {
+   "name": "American Oak",
+   "kind": "Imported hardwood",
+   "description": "A timeless choice, American Oak has a soft, golden-tan colour and a strong, straight grain. It’s hard, stable and takes a finish beautifully, from a natural oiled look to a lightly washed tone.",
+   "summary": "Clean, classic and built to last. Ideal for dining tables and pieces that get everyday use.",
+   "image": "timber-american-oak"
+  },
+  {
+   "name": "Walnut",
+   "kind": "Imported hardwood",
+   "description": "Walnut is prized for its deep chocolate colour, with flowing grain and occasional lighter streaks. It brings instant warmth and a sense of richness to any room, and it only deepens in tone with age.",
+   "summary": "Dark, elegant and luxurious. Beautiful for feature pieces, sideboards and bedside tables.",
+   "image": "timber-walnut"
+  },
+  {
+   "name": "Australian Chestnut",
+   "kind": "Australian hardwood",
+   "description": "Australian Chestnut has a warm, light-to-mid brown colour with a straight, open grain and natural gum veins. It brings the character of a local hardwood with a soft, even tone that suits almost any space.",
+   "summary": "Warm, natural and versatile. A lovely all-rounder for tables, consoles and cabinetry.",
+   "image": "timber-australian-chestnut"
+  }
+ ],
+ "pieceEnquiryNote": "Tell us your room and the size you need, and we’ll come back to you within two business days."
+}

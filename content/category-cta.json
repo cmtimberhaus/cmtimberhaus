@@ -1,0 +1,17 @@
+{
+ "dining": {
+  "eyebrow": "Commission",
+  "heading": "Your Table, Your Size",
+  "body": "Every dining piece is made to order. Tell us the room, the number of seats and the timber you like, and we'll take it from there."
+ },
+ "living": {
+  "eyebrow": "Commission",
+  "heading": "Made For Your Space",
+  "body": "Every living piece is made to order. Tell us the room, the size and the timber you like, and we'll take it from there."
+ },
+ "bathroom": {
+  "eyebrow": "Commission",
+  "heading": "Built To Fit",
+  "body": "Every bathroom piece is made to order. Tell us the space, the size and the timber you like, and we'll take it from there."
+ }
+}
