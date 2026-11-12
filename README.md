@@ -43,3 +43,11 @@ An apex domain on Pages needs Cloudflare nameservers. Before switching them at t
 - Resend domain verification (sender must be on a verified domain).
 - Cloudflare Turnstile (the form currently uses a honeypot field only).
 - Final contact email, footer details (ABN, phone, service area), confirmed prices and About text.
+
+## RSC prefetch workaround
+
+Next 16 with `output: "export"` writes segment prefetch payloads into nested folders (`out/dining/__next.$d$category/__PAGE__.txt`), but the client router requests a flat, dot-joined name (`out/dining/__next.$d$category.__PAGE__.txt`). Without a fix every `<Link>` prefetch 404s and floods the console. Tracked upstream in [vercel/next.js#85374](https://github.com/vercel/next.js/issues/85374).
+
+`scripts/flatten-rsc-segments.mts` runs as `postbuild` (so `npm run build` runs it) and copies each nested payload to its flat name. The nested originals stay in place. Verified against Next 16.4.6; this is still needed there.
+
+To remove it: once an upstream release fixes the issue, delete the script and the `postbuild` entry, rebuild, serve `out/` and check the browser network panel for 404s on `__next.*.txt`.
