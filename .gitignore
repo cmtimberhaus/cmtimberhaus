@@ -6,3 +6,4 @@ tsconfig.tsbuildinfo
 .env*.local
 .dev.vars
 .playwright-mcp
+.wrangler/
