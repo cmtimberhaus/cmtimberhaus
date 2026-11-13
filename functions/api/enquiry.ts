@@ -167,3 +167,9 @@ export async function onRequestPost({ request, env }: RequestContext): Promise<R
 
   return jsonResponse(200, { ok: true });
 }
+
+export function onRequest(): Response {
+  const response = jsonResponse(405, { error: "Method not allowed." });
+  response.headers.set("Allow", "POST");
+  return response;
+}
