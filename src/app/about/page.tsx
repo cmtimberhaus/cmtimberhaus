@@ -24,7 +24,7 @@ export default async function AboutPage() {
         </Link>
         <div className="ab">
           <div className="ab-photo has">
-            <Photo name={about.photo} alt={about.photoAlt} sizes="(max-width: 859px) 260px, 300px" priority />
+            <Photo image={about.photo} alt={about.photoAlt} sizes="(max-width: 859px) 260px, 300px" priority />
           </div>
           <div className="ab-text">
             <span className="eyebrow">About</span>

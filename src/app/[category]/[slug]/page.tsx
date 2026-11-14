@@ -67,8 +67,8 @@ function gallerySizes(layout: string, isLead: boolean): string {
   ].join(", ");
 }
 
-function timberAnchor(timber: string): string {
-  return `/materials#${materialAnchorId(timber)}`;
+function timberAnchor(slug: string): string {
+  return `/materials#${materialAnchorId(slug)}`;
 }
 
 export default async function PiecePage({ params }: PiecePageProps) {
@@ -85,10 +85,10 @@ export default async function PiecePage({ params }: PiecePageProps) {
       <div className="wrap piece-wrap">
         <div className="pd">
           <div className={galleryClass}>
-            {piece.galleryImages.map((name, index) => (
-              <figure key={name} className={index === piece.galleryLead ? "lead" : undefined}>
+            {piece.galleryImages.map((image, index) => (
+              <figure key={index} className={index === piece.galleryLead ? "lead" : undefined}>
                 <Photo
-                  name={name}
+                  image={image}
                   alt={`${piece.name}, ${piece.subtitle}, photo ${index + 1} of ${piece.galleryImages.length}`}
                   sizes={gallerySizes(piece.galleryLayout, index === piece.galleryLead)}
                   priority={index === 0}
@@ -108,9 +108,9 @@ export default async function PiecePage({ params }: PiecePageProps) {
               <span>Available in</span>
               <ul>
                 {piece.availableTimbers.map((timber) => (
-                  <li key={timber}>
-                    <Link className="chip" href={timberAnchor(timber)}>
-                      {timber}
+                  <li key={timber.slug}>
+                    <Link className="chip" href={timberAnchor(timber.slug)}>
+                      {timber.name}
                     </Link>
                   </li>
                 ))}

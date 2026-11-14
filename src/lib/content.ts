@@ -1,13 +1,10 @@
-import { existsSync } from "node:fs";
-import path from "node:path";
-import piecesJson from "../../content/pieces.json";
-import siteJson from "../../content/site.json";
-import categoryCtaJson from "../../content/category-cta.json";
-import { LOGO_IMAGE, getImage } from "./images";
+import type { ImageSource } from "./images";
+import { IMAGE_PROJECTION, fetchSanity, toImageSource, type RawImage } from "./sanity";
 
 /**
- * Single access point for site content. Every function is async so the data
- * source can later move from these JSON files to a CMS without touching pages.
+ * Single access point for site content. Content lives in Sanity and is read once per build;
+ * every problem found (missing fields, duplicate slugs, broken references, photos without alt
+ * text) fails the build instead of shipping a broken page.
  */
 
 export const categories = ["dining", "living", "bathroom"] as const;
@@ -23,16 +20,22 @@ export function isCategory(value: string): value is Category {
   return (categories as readonly string[]).includes(value);
 }
 
+const BRAND = "CM Timberhaus";
+
 interface PieceSpec {
   label: string;
   value: string;
+}
+
+export interface TimberLink {
+  name: string;
+  slug: string;
 }
 
 export interface Piece {
   slug: string;
   name: string;
   category: Category;
-  order: number;
   cardSubtitle: string;
   subtitle: string;
   cardPrice: string;
@@ -41,10 +44,12 @@ export interface Piece {
   note: string | null;
   description: string[];
   specs: PieceSpec[];
-  availableTimbers: string[];
-  cardImages: string[];
-  galleryImages: string[];
+  availableTimbers: TimberLink[];
+  cardImages: ImageSource[];
+  galleryImages: ImageSource[];
+  /** Grid code the stylesheet understands: "3", "n1" to "n5" or "wide". */
   galleryLayout: string;
+  /** Index of the full-width lead photo, or null. */
   galleryLead: number | null;
 }
 
@@ -56,10 +61,19 @@ interface CategoryCta {
 
 interface Material {
   name: string;
+  slug: string;
   kind: string;
   description: string;
   summary: string;
-  image: string;
+  image: ImageSource;
+  imageAlt: string;
+}
+
+interface CategoryTile {
+  category: Category;
+  label: string;
+  alt: string;
+  image: ImageSource;
 }
 
 interface SiteContent {
@@ -71,11 +85,11 @@ interface SiteContent {
   email: string;
   instagram: string;
   pieceEnquiryNote: string;
-  heroImage: string;
-  categoryTiles: { category: Category; label: string; image: string }[];
+  heroImage: ImageSource;
+  categoryTiles: CategoryTile[];
   enquireSection: { heading: string; body: string };
   about: {
-    photo: string;
+    photo: ImageSource;
     photoAlt: string;
     heading: string;
     paragraphs: string[];
@@ -85,111 +99,330 @@ interface SiteContent {
   materials: Material[];
 }
 
-const pieces = piecesJson as Piece[];
-const site = siteJson as SiteContent;
-const categoryCtas = categoryCtaJson as Record<Category, CategoryCta>;
+interface Content {
+  site: SiteContent;
+  pieces: Piece[];
+  categoryCtas: Record<Category, CategoryCta>;
+}
 
-const IMAGE_DIR = path.join(process.cwd(), "public");
+interface RawCategory {
+  tileTitle: string | null;
+  tileImage: RawImage | null;
+  ctaEyebrow: string | null;
+  ctaHeading: string | null;
+  ctaBody: string | null;
+}
 
-function imageFileProblems(name: string, where: string): string[] {
-  let urls: string[];
-  try {
-    const image = getImage(name);
-    urls = [image.src, ...(image.srcSet ?? "").split(",").map((entry) => entry.trim().split(" ")[0])].filter(
-      (url): url is string => Boolean(url),
-    );
-  } catch {
-    return [`${where}: image "${name}" is not listed in content/images.json`];
+interface RawSite {
+  tagline: string | null;
+  sub: string | null;
+  location: string | null;
+  est: number | null;
+  email: string | null;
+  instagram: string | null;
+  pieceEnquiryNote: string | null;
+  heroImage: RawImage | null;
+  categories: Partial<Record<Category, RawCategory>> | null;
+  enquireSection: { heading: string | null; body: string | null } | null;
+  about: {
+    photo: RawImage | null;
+    heading: string | null;
+    paragraphs: string[] | null;
+    signoff: string | null;
+  } | null;
+  materialsIntro: { heading: string | null; paragraphs: string[] | null } | null;
+}
+
+interface RawMaterial {
+  _id: string;
+  name: string | null;
+  slug: string | null;
+  kind: string | null;
+  description: string | null;
+  summary: string | null;
+  image: RawImage | null;
+}
+
+interface RawPiece {
+  _id: string;
+  name: string | null;
+  slug: string | null;
+  category: string | null;
+  cardSubtitle: string | null;
+  subtitle: string | null;
+  cardPrice: string | null;
+  pagePrice: string | null;
+  priceNote: string | null;
+  note: string | null;
+  description: string | null;
+  specs: { label: string | null; value: string | null }[] | null;
+  availableTimbers: ({ name: string | null; slug: string | null } | null)[] | null;
+  images: { image: RawImage | null }[] | null;
+  cardCover: RawImage | null;
+  galleryLayout: string | null;
+}
+
+interface RawContent {
+  site: RawSite | null;
+  materials: RawMaterial[];
+  pieces: RawPiece[];
+}
+
+const CATEGORY_PROJECTION = `{
+  tileTitle,
+  "tileImage": tileImage${IMAGE_PROJECTION},
+  ctaEyebrow,
+  ctaHeading,
+  ctaBody
+}`;
+
+const QUERY = `{
+  "site": *[_id == "siteSettings"][0]{
+    tagline, sub, location, est, email, instagram, pieceEnquiryNote,
+    "heroImage": heroImage${IMAGE_PROJECTION},
+    "categories": {
+      "dining": categories.dining${CATEGORY_PROJECTION},
+      "living": categories.living${CATEGORY_PROJECTION},
+      "bathroom": categories.bathroom${CATEGORY_PROJECTION}
+    },
+    enquireSection,
+    "about": about{ "photo": photo${IMAGE_PROJECTION}, heading, paragraphs, signoff },
+    materialsIntro
+  },
+  "materials": *[_type == "material"] | order(orderRank){
+    _id, name, "slug": slug.current, kind, description, summary,
+    "image": image${IMAGE_PROJECTION}
+  },
+  "pieces": *[_type == "piece"] | order(orderRank){
+    _id, name, "slug": slug.current, category, cardSubtitle, subtitle, cardPrice, pagePrice,
+    priceNote, note, description, specs, galleryLayout,
+    "availableTimbers": availableTimbers[]->{ name, "slug": slug.current },
+    "images": images[]{ "image": image${IMAGE_PROJECTION} },
+    "cardCover": cardCover${IMAGE_PROJECTION}
   }
-  return urls
-    .filter((url) => !existsSync(path.join(IMAGE_DIR, url)))
-    .map((url) => `${where}: missing file public${url}`);
+}`;
+
+type Problems = string[];
+
+function text(value: string | null | undefined, where: string, problems: Problems): string {
+  if (!value?.trim()) {
+    problems.push(`${where}: missing`);
+    return "";
+  }
+  return value;
+}
+
+function paragraphs(values: string[] | null | undefined, where: string, problems: Problems): string[] {
+  const list = (values ?? []).filter((value) => value.trim());
+  if (list.length === 0) problems.push(`${where}: no paragraphs`);
+  return list;
+}
+
+/** Converts a photo, or records why it cannot be used. `needsAlt` photos must carry a description. */
+function photo(
+  image: RawImage | null | undefined,
+  where: string,
+  problems: Problems,
+  needsAlt = false,
+): ImageSource {
+  if (!image?.ref || !image.width || !image.height) {
+    problems.push(`${where}: photo missing`);
+    return { src: "", width: 1, height: 1 };
+  }
+  if (needsAlt && !image.alt?.trim()) problems.push(`${where}: photo has no description (alt text)`);
+  return toImageSource({ ...image, ref: image.ref, width: image.width, height: image.height });
 }
 
 function findDuplicates(values: string[]): string[] {
-  return values.filter((value, index) => values.indexOf(value) !== index);
+  return [...new Set(values.filter((value, index) => values.indexOf(value) !== index))];
 }
 
-function pieceProblems(): string[] {
-  const problems: string[] = [];
-  const materialNames = new Set(site.materials.map((material) => material.name));
+/** Photo count to the grid code the stylesheet uses when the layout is automatic. */
+function automaticCode(count: number): string {
+  if (count >= 6) return "3";
+  return count === 3 ? "3" : `n${count}`;
+}
 
-  for (const slug of new Set(findDuplicates(pieces.map((piece) => piece.slug)))) {
-    problems.push(`duplicate piece slug "${slug}"`);
-  }
-  for (const piece of pieces) {
-    const where = `piece "${piece.slug}"`;
-    if (!isCategory(piece.category)) problems.push(`${where}: unknown category "${piece.category}"`);
-    for (const timber of piece.availableTimbers) {
-      if (!materialNames.has(timber)) problems.push(`${where}: availableTimbers "${timber}" has no matching material`);
+/** The Studio layout choice as the grid code and lead index the page renders. A lead photo spans the grid above the rest. */
+function gridFor(layout: string | null, count: number): { galleryLayout: string; galleryLead: number | null } {
+  if (layout === "wide") return { galleryLayout: "wide", galleryLead: null };
+  if (layout === "lead") return { galleryLayout: automaticCode(count - 1), galleryLead: 0 };
+  return { galleryLayout: automaticCode(count), galleryLead: null };
+}
+
+function buildMaterial(raw: RawMaterial, problems: Problems): Material {
+  const where = `material "${raw.name ?? raw._id}"`;
+  return {
+    name: text(raw.name, `${where} name`, problems),
+    slug: text(raw.slug, `${where} slug`, problems),
+    kind: text(raw.kind, `${where} kind`, problems),
+    description: text(raw.description, `${where} description`, problems),
+    summary: text(raw.summary, `${where} summary`, problems),
+    image: photo(raw.image, where, problems, true),
+    imageAlt: raw.image?.alt ?? "",
+  };
+}
+
+function buildTimbers(raw: RawPiece, where: string, problems: Problems): TimberLink[] {
+  const timbers = raw.availableTimbers ?? [];
+  if (timbers.length === 0) problems.push(`${where}: no available timbers`);
+  const links: TimberLink[] = [];
+  for (const timber of timbers) {
+    if (!timber?.slug || !timber.name) {
+      problems.push(`${where}: availableTimbers has a reference to a timber that does not exist`);
+    } else {
+      links.push({ name: timber.name, slug: timber.slug });
     }
-    if (piece.galleryLead !== null && !piece.galleryImages[piece.galleryLead]) {
-      problems.push(`${where}: galleryLead ${piece.galleryLead} is outside galleryImages`);
-    }
-    for (const name of [...piece.cardImages, ...piece.galleryImages]) {
-      problems.push(...imageFileProblems(name, where));
-    }
   }
-  return problems;
+  return links;
 }
 
-function siteProblems(): string[] {
-  const problems: string[] = [];
-  for (const name of new Set(findDuplicates(site.materials.map((material) => material.name)))) {
-    problems.push(`duplicate material "${name}"`);
+function buildPiece(raw: RawPiece, problems: Problems): Piece | null {
+  const where = `piece "${raw.slug ?? raw.name ?? raw._id}"`;
+  if (!raw.category || !isCategory(raw.category)) {
+    problems.push(`${where}: unknown category "${raw.category}"`);
+    return null;
   }
-  for (const tile of site.categoryTiles) {
-    if (!isCategory(tile.category)) problems.push(`categoryTiles: unknown category "${tile.category}"`);
-  }
-  for (const category of categories) {
-    if (!categoryCtas[category]) problems.push(`content/category-cta.json has no entry for "${category}"`);
-  }
+  const gallery = (raw.images ?? []).map((entry, index) => photo(entry.image, `${where} photo ${index + 1}`, problems));
+  if (gallery.length === 0) problems.push(`${where}: no photos`);
+  const [firstPhoto, ...otherPhotos] = gallery;
+  const cardFirst = raw.cardCover ? photo(raw.cardCover, `${where} card photo`, problems) : firstPhoto;
 
-  const images: [string, string][] = [
-    [LOGO_IMAGE, "logo"],
-    [site.heroImage, "heroImage"],
-    [site.about.photo, "about.photo"],
-    ...site.categoryTiles.map((tile): [string, string] => [tile.image, `categoryTiles.${tile.category}`]),
-    ...site.materials.map((material): [string, string] => [material.image, `material "${material.name}"`]),
-  ];
-  for (const [name, where] of images) problems.push(...imageFileProblems(name, where));
-  return problems;
+  return {
+    slug: text(raw.slug, `${where} slug`, problems),
+    name: text(raw.name, `${where} name`, problems),
+    category: raw.category,
+    cardSubtitle: text(raw.cardSubtitle, `${where} cardSubtitle`, problems),
+    subtitle: text(raw.subtitle, `${where} subtitle`, problems),
+    cardPrice: text(raw.cardPrice, `${where} cardPrice`, problems),
+    pagePrice: text(raw.pagePrice, `${where} pagePrice`, problems),
+    priceNote: raw.priceNote || null,
+    note: raw.note || null,
+    description: text(raw.description, `${where} description`, problems)
+      .split(/\n{2,}/)
+      .map((paragraph) => paragraph.trim())
+      .filter(Boolean),
+    specs: (raw.specs ?? []).map((spec, index) => ({
+      label: text(spec.label, `${where} spec ${index + 1} label`, problems),
+      value: text(spec.value, `${where} spec ${index + 1} value`, problems),
+    })),
+    availableTimbers: buildTimbers(raw, where, problems),
+    cardImages: cardFirst ? [cardFirst, ...otherPhotos] : [],
+    galleryImages: gallery,
+    ...gridFor(raw.galleryLayout, gallery.length),
+  };
 }
 
-/** Fails the build on content mistakes that would otherwise ship as broken pages or images. */
-function validateContent(): void {
-  const problems = [...siteProblems(), ...pieceProblems()];
-  if (problems.length > 0) {
-    throw new Error(`Invalid content:\n - ${problems.join("\n - ")}`);
-  }
+function buildTile(category: Category, raw: RawCategory | undefined, problems: Problems): CategoryTile {
+  const where = `siteSettings category "${category}"`;
+  return {
+    category,
+    label: text(raw?.tileTitle, `${where} tile title`, problems),
+    alt: raw?.tileImage?.alt ?? "",
+    image: photo(raw?.tileImage, `${where} tile`, problems, true),
+  };
 }
 
-validateContent();
+function buildCta(category: Category, raw: RawCategory | undefined, problems: Problems): CategoryCta {
+  const where = `siteSettings category "${category}"`;
+  return {
+    eyebrow: text(raw?.ctaEyebrow, `${where} CTA eyebrow`, problems),
+    heading: text(raw?.ctaHeading, `${where} CTA heading`, problems),
+    body: text(raw?.ctaBody, `${where} CTA body`, problems),
+  };
+}
+
+function buildSite(raw: RawSite, materials: Material[], problems: Problems): SiteContent {
+  const where = "siteSettings";
+  if (raw.est === null || !Number.isInteger(raw.est)) problems.push(`${where}: est year missing`);
+  return {
+    brand: BRAND,
+    tagline: text(raw.tagline, `${where} tagline`, problems),
+    sub: text(raw.sub, `${where} sub`, problems),
+    location: text(raw.location, `${where} location`, problems),
+    est: raw.est ?? 0,
+    email: text(raw.email, `${where} email`, problems),
+    instagram: text(raw.instagram, `${where} instagram`, problems),
+    pieceEnquiryNote: text(raw.pieceEnquiryNote, `${where} pieceEnquiryNote`, problems),
+    // The hero is decorative (empty alt), so it carries no description.
+    heroImage: photo(raw.heroImage, `${where} hero`, problems),
+    categoryTiles: categories.map((category) => buildTile(category, raw.categories?.[category], problems)),
+    enquireSection: {
+      heading: text(raw.enquireSection?.heading, `${where} enquireSection heading`, problems),
+      body: text(raw.enquireSection?.body, `${where} enquireSection body`, problems),
+    },
+    about: {
+      photo: photo(raw.about?.photo, `${where} about`, problems, true),
+      photoAlt: raw.about?.photo?.alt ?? "",
+      heading: text(raw.about?.heading, `${where} about heading`, problems),
+      paragraphs: paragraphs(raw.about?.paragraphs, `${where} about`, problems),
+      signoff: text(raw.about?.signoff, `${where} about signoff`, problems),
+    },
+    materialsIntro: {
+      heading: text(raw.materialsIntro?.heading, `${where} materialsIntro heading`, problems),
+      paragraphs: paragraphs(raw.materialsIntro?.paragraphs, `${where} materialsIntro`, problems),
+    },
+    materials,
+  };
+}
+
+function build(raw: RawContent): Content {
+  const problems: Problems = [];
+  if (!raw.site) throw new Error("Invalid content:\n - siteSettings document not found (publish it in the Studio)");
+
+  const materials = raw.materials.map((material) => buildMaterial(material, problems));
+  const pieces = raw.pieces
+    .map((piece) => buildPiece(piece, problems))
+    .filter((piece): piece is Piece => piece !== null);
+
+  for (const slug of findDuplicates(materials.map((material) => material.slug))) {
+    problems.push(`duplicate material slug "${slug}"`);
+  }
+  for (const key of findDuplicates(pieces.map((piece) => `${piece.category}/${piece.slug}`))) {
+    problems.push(`duplicate piece slug "${key}"`);
+  }
+
+  const site = buildSite(raw.site, materials, problems);
+  const categoryCtas = {
+    dining: buildCta("dining", raw.site.categories?.dining, problems),
+    living: buildCta("living", raw.site.categories?.living, problems),
+    bathroom: buildCta("bathroom", raw.site.categories?.bathroom, problems),
+  };
+
+  if (problems.length > 0) throw new Error(`Invalid content:\n - ${problems.join("\n - ")}`);
+  return { site, pieces, categoryCtas };
+}
+
+let contentPromise: Promise<Content> | undefined;
+
+/** Fetched and validated once per build process. */
+function loadContent(): Promise<Content> {
+  contentPromise ??= fetchSanity<RawContent>(QUERY).then(build);
+  return contentPromise;
+}
 
 export async function getSite(): Promise<SiteContent> {
-  return site;
+  return (await loadContent()).site;
 }
 
 export async function getPieces(): Promise<Piece[]> {
-  return pieces;
+  return (await loadContent()).pieces;
 }
 
 export async function getPiecesByCategory(category: Category): Promise<Piece[]> {
-  return pieces
-    .filter((piece) => piece.category === category)
-    .sort((a, b) => a.order - b.order);
+  return (await getPieces()).filter((piece) => piece.category === category);
 }
 
 export async function getPiece(category: Category, slug: string): Promise<Piece | undefined> {
-  return pieces.find((piece) => piece.category === category && piece.slug === slug);
+  return (await getPieces()).find((piece) => piece.category === category && piece.slug === slug);
 }
 
 export async function getCategoryCta(category: Category): Promise<CategoryCta> {
-  return categoryCtas[category];
+  return (await loadContent()).categoryCtas[category];
 }
 
-export function materialAnchorId(name: string): string {
-  return `mat-${name.toLowerCase().replace(/\s+/g, "-")}`;
+export function materialAnchorId(slug: string): string {
+  return `mat-${slug}`;
 }
 
 export function pieceHref(piece: Pick<Piece, "category" | "slug">): string {

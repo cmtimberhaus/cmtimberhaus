@@ -35,7 +35,7 @@ export default async function HomePage() {
       <Header variant="fixed" />
       <main id="main" tabIndex={-1}>
         <section className="hero">
-          <Photo name={site.heroImage} alt="" className="cover" sizes="100vw" priority />
+          <Photo image={site.heroImage} alt="" className="cover" sizes="100vw" priority />
           <div className="hero-shade" />
           <div className="hero-top" />
           <div className="hero-main">
@@ -65,8 +65,8 @@ export default async function HomePage() {
           {site.categoryTiles.map((tile, index) => (
             <Link key={tile.category} className="tile" href={`/${tile.category}`}>
               <Photo
-                name={tile.image}
-                alt={tile.label}
+                image={tile.image}
+                alt={tile.alt}
                 sizes="34vw"
                 className={tile.category === "bathroom" ? "cover cover-zoom" : "cover"}
               />

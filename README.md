@@ -18,10 +18,59 @@ Node 22 or newer (`engines`, `.node-version`). `NEXT_PUBLIC_SITE_URL` is require
 
 ## Content
 
-- `content/pieces.json`: all pieces. Order within a category is the `order` field.
-- `content/site.json`: brand text, contact details, About and Materials text, the enquiry reply-time note on piece pages.
-- `content/images.json`: dimensions per image. Images live in `public/images/<name>-800.webp` and `-1600.webp`.
-- `src/lib/content.ts` is the only file that reads content. It validates it at build time (duplicate slugs, unknown categories, missing image files, timbers without a material) and fails the build on any problem. It is async so it can be switched to Sanity without touching pages.
+All site content lives in Sanity (project `ka21otlh`, dataset `production`, public dataset, no token needed to read):
+
+- **Site settings** (single document): hero photo and text, About, home page category tiles, per-category call-to-action text, Materials page intro, the enquiry section, contact details and the "Est." year.
+- **Timbers** (`material` documents): name, kind, description, summary and photo, in the order they appear on /materials.
+- **Pieces**: grouped by category in the Studio, ordered by drag and drop. Each piece references its available timbers; the order of that list is the order on the piece page.
+
+`src/lib/content.ts` is the only file that reads content. It fetches everything once per build and **fails the build** on: missing site settings or required fields, duplicate piece or timber slugs, a piece that references a timber that no longer exists, pieces without photos or timbers, and timber, tile or About photos without a description (alt text).
+
+What stays in code: brand name, navigation, form labels and messages, legal and structural text, the category list and URLs, the logo (`public/images/logo.png`) and `public/og.jpg`.
+
+> `public/og.jpg` (the link-preview image) is a fixed file. It does **not** follow a change of the hero photo in Sanity; replace the file by hand if the hero changes.
+
+Photos are served from the Sanity CDN with `@sanity/image-url` (WebP, 800 and 1600 pixel variants, same `srcset` as before). Width and height come from the asset metadata, so there is no layout shift.
+
+## Studio
+
+The Studio lives in `studio/` (its own `package.json`).
+
+```
+cd studio
+npm install
+npm run dev        # http://localhost:3333
+npm run deploy     # hosted Studio on sanity.studio
+npm run typecheck
+```
+
+Draft changes stay private until **Publish**. The site only reads published documents.
+
+### Roles and the free plan
+
+The free plan has only the Administrator and Viewer roles. Charlie must be an **Administrator** to edit, which also lets him delete the project or dataset in the Sanity settings. Keep a backup: run `npx sanity dataset export production backup.tar.gz` from `studio/` regularly (for example monthly, and before any large edit) and store the file outside the repo.
+
+### Publish triggers a rebuild
+
+In Cloudflare Pages create a **deploy hook** (Settings, Builds & deployments, Deploy hooks). In Sanity (manage.sanity.io, API, Webhooks) create a webhook:
+
+- URL: the deploy hook URL
+- Dataset: `production`, trigger on create, update and delete
+- Filter: `_type in ["siteSettings", "material", "piece"]`
+- Projection: leave empty, HTTP method POST, drafts off
+
+Each publish then rebuilds and deploys the static site (usually a minute or two).
+
+### Import (one-off)
+
+`scripts/import-content.mts` loaded the original content into Sanity. It creates documents with fixed ids and `createIfNotExists`, so re-running never overwrites Studio edits (`--replace` does).
+
+```
+node --experimental-strip-types scripts/import-content.mts          # dry run, writes nothing
+SANITY_WRITE_TOKEN=... node --experimental-strip-types scripts/import-content.mts --write
+```
+
+Use a token with the Editor role and revoke it afterwards. Never commit it.
 
 ## Deploy (Cloudflare Pages)
 
@@ -39,7 +88,7 @@ An apex domain on Pages needs Cloudflare nameservers. Before switching them at t
 
 ## Not done yet
 
-- Sanity schema, import of `content/pieces.json`, deploy webhook.
+- Sanity deploy webhook (steps above), hosted Studio deploy.
 - Resend domain verification (sender must be on a verified domain).
 - Cloudflare Turnstile (the form currently uses a honeypot field only).
 - Final contact email, footer details (ABN, phone, service area), confirmed prices and About text.

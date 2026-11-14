@@ -1,7 +1,7 @@
-import { getImage } from "@/lib/images";
+import type { ImageSource } from "@/lib/images";
 
 interface PhotoProps {
-  name: string;
+  image: ImageSource;
   alt: string;
   sizes: string;
   className?: string;
@@ -11,8 +11,7 @@ interface PhotoProps {
   eager?: boolean;
 }
 
-export function Photo({ name, alt, sizes, className, priority = false, eager = false }: PhotoProps) {
-  const image = getImage(name);
+export function Photo({ image, alt, sizes, className, priority = false, eager = false }: PhotoProps) {
   return (
     <img
       src={image.src}

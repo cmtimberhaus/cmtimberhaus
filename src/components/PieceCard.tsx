@@ -8,8 +8,8 @@ interface PieceCardProps {
 
 export function PieceCard({ piece }: PieceCardProps) {
   const href = pieceHref(piece);
-  const images = piece.cardImages.map((name, index) => ({
-    name,
+  const images = piece.cardImages.map((image, index) => ({
+    image,
     alt: `${piece.name}, ${piece.cardSubtitle}, photo ${index + 1} of ${piece.cardImages.length}`,
   }));
 

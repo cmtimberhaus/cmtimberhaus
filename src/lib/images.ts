@@ -6,7 +6,7 @@ interface ImageRecord {
   format: "webp" | "png";
 }
 
-interface ImageSource {
+export interface ImageSource {
   src: string;
   srcSet?: string;
   width: number;
@@ -17,14 +17,16 @@ const records: Record<string, ImageRecord> = imageDimensions as Record<string, I
 
 export const LOGO_IMAGE = "logo";
 
-const SMALL = 800;
-const LARGE = 1600;
+export const SMALL = 800;
+export const LARGE = 1600;
 
-function scaled(record: ImageRecord, longEdge: number): { width: number; height: number } {
-  const ratio = Math.min(1, longEdge / Math.max(record.width, record.height));
-  return { width: Math.round(record.width * ratio), height: Math.round(record.height * ratio) };
+/** Size after scaling so the long edge is at most `longEdge`, never enlarging. */
+export function scaled(size: { width: number; height: number }, longEdge: number): { width: number; height: number } {
+  const ratio = Math.min(1, longEdge / Math.max(size.width, size.height));
+  return { width: Math.round(size.width * ratio), height: Math.round(size.height * ratio) };
 }
 
+/** Repo images. Only the logo is still served from public/images. */
 export function getImage(name: string): ImageSource {
   const record = records[name];
   if (!record) {

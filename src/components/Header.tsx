@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { LOGO_IMAGE } from "@/lib/images";
+import { LOGO_IMAGE, getImage } from "@/lib/images";
 import { Photo } from "./Photo";
 
 const NAV_LINKS = [
@@ -85,7 +85,7 @@ export function Header({ variant }: HeaderProps) {
       <header className={headerClass}>
         <div className="hbar">
           <Link className="logo" href="/" aria-label="CM Timberhaus home">
-            <Photo name={LOGO_IMAGE} alt="CM. Timberhaus" sizes="74px" eager />
+            <Photo image={getImage(LOGO_IMAGE)} alt="CM. Timberhaus" sizes="74px" eager />
           </Link>
           <div className="hnav">
             <nav className="nav" aria-label="Main">
@@ -123,7 +123,7 @@ export function Header({ variant }: HeaderProps) {
         inert={!menuOpen}
       >
         <div className="top">
-          <Photo name={LOGO_IMAGE} alt="CM. Timberhaus" sizes="44px" className="menu-logo" eager />
+          <Photo image={getImage(LOGO_IMAGE)} alt="CM. Timberhaus" sizes="44px" className="menu-logo" eager />
           <button ref={closeRef} type="button" className="close" aria-label="Close menu" onClick={closeMenu}>
             &times;
           </button>

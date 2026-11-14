@@ -31,9 +31,9 @@ export default async function MaterialsPage() {
         </div>
         <div className="mt-grid">
           {site.materials.map((material) => (
-            <div key={material.name} className="mt-row" id={materialAnchorId(material.name)}>
+            <div key={material.slug} className="mt-row" id={materialAnchorId(material.slug)}>
               <div className="mt-ph has">
-                <Photo name={material.image} alt={`${material.name} timber`} sizes="170px" />
+                <Photo image={material.image} alt={material.imageAlt} sizes="170px" />
               </div>
               <div className="mt-tx">
                 <small>{material.kind}</small>

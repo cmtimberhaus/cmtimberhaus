@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { ImageSource } from "@/lib/images";
 import { Photo } from "./Photo";
 
 interface CarouselImage {
-  name: string;
+  image: ImageSource;
   alt: string;
 }
 
@@ -44,14 +45,14 @@ export function Carousel({ images, href, sizes, label }: CarouselProps) {
       <div className="track" ref={trackRef} onScroll={syncCurrent} tabIndex={-1}>
         {images.map((image, index) => (
           <div
-            key={image.name}
+            key={index}
             className="slide"
             role="group"
             aria-roledescription="slide"
             aria-label={`${index + 1} of ${count}`}
           >
             <Link href={href} tabIndex={-1}>
-              <Photo name={image.name} alt={image.alt} sizes={sizes} />
+              <Photo image={image.image} alt={image.alt} sizes={sizes} />
             </Link>
           </div>
         ))}
@@ -79,7 +80,7 @@ export function Carousel({ images, href, sizes, label }: CarouselProps) {
           <div className="dots">
             {images.map((image, index) => (
               <button
-                key={image.name}
+                key={index}
                 type="button"
                 tabIndex={-1}
                 className={index === current ? "on" : undefined}
