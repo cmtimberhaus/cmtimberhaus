@@ -77,8 +77,17 @@ Use a token with the Editor role and revoke it afterwards. Never commit it.
 - Build command: `npm run build`
 - Output directory: `out`
 - Headers (caching, nosniff, referrer policy, frame denial) come from `public/_headers`.
-- Environment variable (build): `NEXT_PUBLIC_SITE_URL`
-- Environment variables (Functions): `RESEND_API_KEY`, `ENQUIRY_TO`, `ENQUIRY_FROM`
+
+Build variables (Settings, Variables and Secrets, Production and Preview):
+
+| Name | Value |
+| --- | --- |
+| `NODE_VERSION` | `22` |
+| `NEXT_PUBLIC_SITE_URL` | Public site address, for example `https://cmtimberhaus.com.au`. Required. The build stops with an error naming it when it is missing, invalid or an example.com/org/net host. |
+
+That is the complete list. The Sanity project id (`ka21otlh`) and dataset (`production`) are fixed in `src/lib/sanity.ts`, so there are no `SANITY_*` variables, and the dataset is public so no token is needed. Do not add a Sanity token to Cloudflare.
+
+Runtime secrets of the Pages Function (encrypted, not used by the build): `RESEND_API_KEY`, `ENQUIRY_TO`, `ENQUIRY_FROM`.
 
 `functions/api/enquiry.ts` is served at `/api/enquiry`. Without the three Function variables it returns 500 and the form shows the email fallback.
 
