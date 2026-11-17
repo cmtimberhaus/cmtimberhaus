@@ -24,7 +24,7 @@ All site content lives in Sanity (project `ka21otlh`, dataset `production`, publ
 - **Timbers** (`material` documents): name, kind, description, summary and photo, in the order they appear on /materials.
 - **Pieces**: grouped by category in the Studio, ordered by drag and drop. Each piece references its available timbers; the order of that list is the order on the piece page.
 
-`src/lib/content.ts` is the only file that reads content. It fetches everything once per build and **fails the build** on: missing site settings or required fields, duplicate piece or timber slugs, a piece that references a timber that no longer exists, pieces without photos or timbers, and timber, tile or About photos without a description (alt text).
+`src/lib/content.ts` is the only file that reads content. It fetches everything once per build and **fails the build** on: missing site settings or required fields, duplicate piece or timber slugs, a piece that references a timber that no longer exists, pieces without photos or timbers, and timber, tile or About photos without a description (alt text). Builds read live Sanity data and must not rely on `.next/cache`: the query is sent with `next: { revalidate: 1 }`, so if the host restores a build cache the content still refreshes.
 
 What stays in code: brand name, navigation, form labels and messages, legal and structural text, the category list and URLs, the logo (`public/images/logo.png`) and `public/og.jpg`.
 

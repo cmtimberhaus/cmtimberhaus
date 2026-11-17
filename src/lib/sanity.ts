@@ -31,8 +31,14 @@ export interface RawImage {
   height: number | null;
 }
 
+/**
+ * Without a `revalidate` Next caches this response in `.next/cache/fetch-cache` for a year and
+ * replays it on later builds, so edits in Sanity would not show up. `cache: "no-store"` would
+ * avoid that but makes the routes dynamic, which `output: "export"` rejects. A one second
+ * `revalidate` keeps the routes static and treats any earlier build's entry as expired.
+ */
 export function fetchSanity<T>(query: string): Promise<T> {
-  return client.fetch<T>(query);
+  return client.fetch<T>(query, {}, { next: { revalidate: 1 } });
 }
 
 const WEBP_QUALITY = 85;
