@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { InnerLayout } from "@/components/InnerLayout";
 import { Photo } from "@/components/Photo";
+import { PriceSelector } from "@/components/PriceSelector";
 import {
   categoryTitles,
   getPiece,
@@ -75,6 +76,13 @@ export default async function PiecePage({ params }: PiecePageProps) {
   const [piece, site] = await Promise.all([loadPiece(params), getSite()]);
   if (!piece) notFound();
 
+  const description = (
+    <div className="pd-desc">
+      {piece.description.map((paragraph) => (
+        <p key={paragraph}>{paragraph}</p>
+      ))}
+    </div>
+  );
   const galleryClass = ["pd-gal", piece.galleryLayout === "3" ? "" : piece.galleryLayout]
     .filter(Boolean)
     .join(" ");
@@ -102,40 +110,52 @@ export default async function PiecePage({ params }: PiecePageProps) {
             </Link>
             <h1>{piece.name}</h1>
             <span className="pd-mat">{piece.subtitle}</span>
-            <span className="pd-price">{piece.pagePrice}</span>
-            {piece.priceNote && <span className="pd-set">{piece.priceNote}</span>}
-            <div className="pd-avail">
-              <span>Available in</span>
-              <ul>
-                {piece.availableTimbers.map((timber) => (
-                  <li key={timber.slug}>
-                    <Link className="chip" href={timberAnchor(timber.slug)}>
-                      {timber.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              {piece.note && <div className="pd-note">{piece.note}</div>}
-            </div>
-            <div className="pd-desc">
-              {piece.description.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-            <dl className="pd-specs">
-              {piece.specs.map((spec) => (
-                <div key={spec.label}>
-                  <dt>{spec.label}</dt>
-                  <dd>{spec.value}</dd>
+            {piece.pricing ? (
+              <PriceSelector
+                pieceSlug={piece.slug}
+                pricing={piece.pricing}
+                timbers={piece.availableTimbers}
+                specs={piece.specs}
+                priceNote={piece.priceNote}
+                note={piece.note}
+                enquiryNote={site.pieceEnquiryNote}
+              >
+                {description}
+              </PriceSelector>
+            ) : (
+              <>
+                <span className="pd-price">{piece.pagePrice}</span>
+                {piece.priceNote && <span className="pd-set">{piece.priceNote}</span>}
+                <div className="pd-avail">
+                  <span>Available in</span>
+                  <ul>
+                    {piece.availableTimbers.map((timber) => (
+                      <li key={timber.slug}>
+                        <Link className="chip" href={timberAnchor(timber.slug)}>
+                          {timber.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  {piece.note && <div className="pd-note">{piece.note}</div>}
                 </div>
-              ))}
-            </dl>
-            <div className="pd-cta">
-              <Link className="dark-btn" href={`/enquire?piece=${piece.slug}`}>
-                Enquire about this piece
-              </Link>
-              <small>{site.pieceEnquiryNote}</small>
-            </div>
+                {description}
+                <dl className="pd-specs">
+                  {piece.specs.map((spec) => (
+                    <div key={spec.label}>
+                      <dt>{spec.label}</dt>
+                      <dd>{spec.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <div className="pd-cta">
+                  <Link className="dark-btn" href={`/enquire?piece=${piece.slug}`}>
+                    Enquire about this piece
+                  </Link>
+                  <small>{site.pieceEnquiryNote}</small>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

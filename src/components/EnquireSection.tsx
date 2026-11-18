@@ -18,7 +18,12 @@ export async function EnquireSection({ headingLevel: Heading }: EnquireSectionPr
           <span className="rule-line" />
         </div>
         <EnquiryForm
-          pieces={pieces.map((piece) => ({ slug: piece.slug, name: piece.name }))}
+          pieces={pieces.map((piece) => ({
+            slug: piece.slug,
+            name: piece.name,
+            pricing: piece.pricing,
+            timbers: piece.availableTimbers,
+          }))}
           fallbackEmail={site.email}
         />
       </div>

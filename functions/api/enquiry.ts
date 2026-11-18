@@ -14,10 +14,13 @@ interface Enquiry {
   email: string;
   message: string;
   piece: string;
+  timber: string;
+  size: string;
+  guidePrice: string;
   honeypot: string;
 }
 
-const LIMITS = { name: 100, email: 254, message: 5000, piece: 100 } as const;
+const LIMITS = { name: 100, email: 254, message: 5000, piece: 100, timber: 100, size: 100, guidePrice: 40 } as const;
 const MAX_BODY_BYTES = 32 * 1024;
 const RESEND_TIMEOUT_MS = 10_000;
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
@@ -57,6 +60,9 @@ function parseEnquiry(payload: unknown): Enquiry | null {
     email: readString(source, "email"),
     message: readString(source, "message"),
     piece: readString(source, "piece"),
+    timber: readString(source, "timber"),
+    size: readString(source, "size"),
+    guidePrice: readString(source, "guidePrice"),
     honeypot: readString(source, "website"),
   };
 }
@@ -66,6 +72,9 @@ function validationError(enquiry: Enquiry): string | null {
   if (!isPlainEmail(enquiry.email)) return "Please enter a valid email address.";
   if (!enquiry.message || enquiry.message.length > LIMITS.message) return "Please enter a message.";
   if (enquiry.piece.length > LIMITS.piece) return "Invalid request.";
+  if (enquiry.timber.length > LIMITS.timber) return "Invalid request.";
+  if (enquiry.size.length > LIMITS.size) return "Invalid request.";
+  if (enquiry.guidePrice.length > LIMITS.guidePrice) return "Invalid request.";
   return null;
 }
 
@@ -152,6 +161,10 @@ export async function onRequestPost({ request, env }: RequestContext): Promise<R
         `Name: ${enquiry.name}`,
         `Email: ${enquiry.email}`,
         enquiry.piece ? `Piece: ${enquiry.piece}` : null,
+        enquiry.timber ? `Timber: ${singleLine(enquiry.timber)}` : null,
+        enquiry.size ? `Size: ${singleLine(enquiry.size)}` : null,
+        // Typed in the browser, so informational only: never used to price or confirm anything.
+        enquiry.guidePrice ? `Guide price: ${singleLine(enquiry.guidePrice)}` : null,
         "",
         enquiry.message,
       ]

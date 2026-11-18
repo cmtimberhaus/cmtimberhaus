@@ -165,6 +165,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .pd-avail ul{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
 .chip{display:inline-block;font:400 13px/1 'Jost',sans-serif;letter-spacing:.04em;color:#2a1d15;border:1px solid rgba(42,29,21,.3);padding:10px 14px;transition:border-color .2s}
 .chip:hover{border-color:#2a1d15}
+.pd-form{display:flex;flex-direction:column;gap:22px}
+.pd-pricebox{display:flex;flex-direction:column;gap:6px}
+.pd-pricebox .pd-set{margin-top:0}
+.pd-pick{gap:18px}
+.pd-pick fieldset{border:0;margin:0;padding:0;min-width:0}
+.pd-pick legend{padding:0;margin-bottom:10px;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#5c4a3c}
+.pd-opts{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.opt{position:relative;display:block;cursor:pointer}
+.opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.opt span{display:inline-block;font:400 13px/1 'Jost',sans-serif;letter-spacing:.04em;color:#2a1d15;border:1px solid rgba(42,29,21,.3);padding:10px 14px;transition:border-color .2s}
+.opt:hover span{border-color:#2a1d15}
+.opt input:checked+span{background:#2a1d15;border-color:#2a1d15;color:#efe3d4}
+.opt input:focus-visible+span{outline:2px solid #2a1d15;outline-offset:2px}
+.pd-more{align-self:flex-start;font-size:13px;font-weight:300;letter-spacing:.04em;color:#5c4a3c!important;text-decoration:underline;text-underline-offset:3px}
+.pd-more:hover{color:#2a1d15!important}
 .pd-note{font-size:13px;font-weight:300;color:#5c4a3c;line-height:1.6}
 
 .ab-photo.has{border:0;padding:0}
