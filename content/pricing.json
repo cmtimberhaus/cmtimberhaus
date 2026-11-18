@@ -1,0 +1,1847 @@
+[
+ {
+  "slug": "the-yorkshire",
+  "sizeLabel": "Size (mm)",
+  "defaultTimber": "recycled-messmate",
+  "startSize": "2000 x 1000",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "label": "2000 x 1000",
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 4000
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 4000
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 4000
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 4300
+     },
+     {
+      "timber": "american-oak",
+      "amount": 4300
+     },
+     {
+      "timber": "blackwood",
+      "amount": 4500
+     },
+     {
+      "timber": "walnut",
+      "amount": 5230
+     }
+    ]
+   },
+   {
+    "label": "2200 x 1000",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 4300
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 4300
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 4300
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 4600
+     },
+     {
+      "timber": "american-oak",
+      "amount": 4600
+     },
+     {
+      "timber": "blackwood",
+      "amount": 4800
+     },
+     {
+      "timber": "walnut",
+      "amount": 5530
+     }
+    ]
+   },
+   {
+    "label": "2500 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 4800
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 4800
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 4800
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 5100
+     },
+     {
+      "timber": "american-oak",
+      "amount": 5100
+     },
+     {
+      "timber": "blackwood",
+      "amount": 5300
+     },
+     {
+      "timber": "walnut",
+      "amount": 6030
+     }
+    ]
+   },
+   {
+    "label": "3000 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 5400
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 5400
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 5400
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 5700
+     },
+     {
+      "timber": "american-oak",
+      "amount": 5700
+     },
+     {
+      "timber": "blackwood",
+      "amount": 5900
+     },
+     {
+      "timber": "walnut",
+      "amount": 6630
+     }
+    ]
+   },
+   {
+    "label": "3500 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 6000
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 6000
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 6000
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 6300
+     },
+     {
+      "timber": "american-oak",
+      "amount": 6300
+     },
+     {
+      "timber": "blackwood",
+      "amount": 6500
+     },
+     {
+      "timber": "walnut",
+      "amount": 7230
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-rex",
+  "defaultTimber": "blackbutt",
+  "priceSuffix": "each",
+  "bundle": {
+   "label": "Set of 8",
+   "quantity": 8
+  },
+  "rows": [
+   {
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "blackbutt",
+      "amount": 400,
+      "bundleAmount": 3000
+     },
+     {
+      "timber": "messmate",
+      "amount": 400,
+      "bundleAmount": 3000
+     },
+     {
+      "timber": "american-oak",
+      "amount": 450,
+      "bundleAmount": 3400
+     },
+     {
+      "timber": "walnut",
+      "amount": 470,
+      "bundleAmount": 3560
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-coombes",
+  "sizeLabel": "Size (mm)",
+  "defaultTimber": "american-oak",
+  "startSize": "2000 x 1000",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "label": "2000 x 1000",
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 3600
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 3600
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 3600
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 3900
+     },
+     {
+      "timber": "american-oak",
+      "amount": 3900
+     },
+     {
+      "timber": "blackwood",
+      "amount": 4100
+     },
+     {
+      "timber": "walnut",
+      "amount": 4830
+     }
+    ]
+   },
+   {
+    "label": "2200 x 1000",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 3900
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 3900
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 3900
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 4200
+     },
+     {
+      "timber": "american-oak",
+      "amount": 4200
+     },
+     {
+      "timber": "blackwood",
+      "amount": 4400
+     },
+     {
+      "timber": "walnut",
+      "amount": 5130
+     }
+    ]
+   },
+   {
+    "label": "2500 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 4400
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 4400
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 4400
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 4700
+     },
+     {
+      "timber": "american-oak",
+      "amount": 4700
+     },
+     {
+      "timber": "blackwood",
+      "amount": 4900
+     },
+     {
+      "timber": "walnut",
+      "amount": 5630
+     }
+    ]
+   },
+   {
+    "label": "3000 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 5000
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 5000
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 5000
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 5300
+     },
+     {
+      "timber": "american-oak",
+      "amount": 5300
+     },
+     {
+      "timber": "blackwood",
+      "amount": 5500
+     },
+     {
+      "timber": "walnut",
+      "amount": 6230
+     }
+    ]
+   },
+   {
+    "label": "3500 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 5600
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 5600
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 5600
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 5900
+     },
+     {
+      "timber": "american-oak",
+      "amount": 5900
+     },
+     {
+      "timber": "blackwood",
+      "amount": 6100
+     },
+     {
+      "timber": "walnut",
+      "amount": 6830
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-elevation",
+  "sizeLabel": "Size (mm)",
+  "defaultTimber": "american-oak",
+  "startSize": "2000 x 1000",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "label": "2000 x 1000",
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 3600
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 3600
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 3600
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 3900
+     },
+     {
+      "timber": "american-oak",
+      "amount": 3900
+     },
+     {
+      "timber": "blackwood",
+      "amount": 4100
+     },
+     {
+      "timber": "walnut",
+      "amount": 4830
+     }
+    ]
+   },
+   {
+    "label": "2200 x 1000",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 3900
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 3900
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 3900
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 4200
+     },
+     {
+      "timber": "american-oak",
+      "amount": 4200
+     },
+     {
+      "timber": "blackwood",
+      "amount": 4400
+     },
+     {
+      "timber": "walnut",
+      "amount": 5130
+     }
+    ]
+   },
+   {
+    "label": "2500 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 4400
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 4400
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 4400
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 4700
+     },
+     {
+      "timber": "american-oak",
+      "amount": 4700
+     },
+     {
+      "timber": "blackwood",
+      "amount": 4900
+     },
+     {
+      "timber": "walnut",
+      "amount": 5630
+     }
+    ]
+   },
+   {
+    "label": "3000 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 5000
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 5000
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 5000
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 5300
+     },
+     {
+      "timber": "american-oak",
+      "amount": 5300
+     },
+     {
+      "timber": "blackwood",
+      "amount": 5500
+     },
+     {
+      "timber": "walnut",
+      "amount": 6230
+     }
+    ]
+   },
+   {
+    "label": "3500 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 5600
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 5600
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 5600
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 5900
+     },
+     {
+      "timber": "american-oak",
+      "amount": 5900
+     },
+     {
+      "timber": "blackwood",
+      "amount": 6100
+     },
+     {
+      "timber": "walnut",
+      "amount": 6830
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-study-nook",
+  "defaultTimber": "messmate",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 900
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 900
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 900
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 990
+     },
+     {
+      "timber": "american-oak",
+      "amount": 990
+     },
+     {
+      "timber": "blackwood",
+      "amount": 1040
+     },
+     {
+      "timber": "walnut",
+      "amount": 1170
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-waratah",
+  "defaultTimber": "blackwood",
+  "priceSuffix": "each",
+  "bundle": {
+   "label": "Pair",
+   "quantity": 2
+  },
+  "rows": [
+   {
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 430,
+      "bundleAmount": 740
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 430,
+      "bundleAmount": 740
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 430,
+      "bundleAmount": 740
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 480,
+      "bundleAmount": 810
+     },
+     {
+      "timber": "american-oak",
+      "amount": 480,
+      "bundleAmount": 810
+     },
+     {
+      "timber": "blackwood",
+      "amount": 500,
+      "bundleAmount": 850
+     },
+     {
+      "timber": "walnut",
+      "amount": 570,
+      "bundleAmount": 960
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-annabella",
+  "defaultTimber": "american-oak",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 500
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 500
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 500
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 550
+     },
+     {
+      "timber": "american-oak",
+      "amount": 550
+     },
+     {
+      "timber": "blackwood",
+      "amount": 580
+     },
+     {
+      "timber": "walnut",
+      "amount": 650
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-murphy",
+  "defaultTimber": "messmate",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 1300
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 1300
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 1300
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 1430
+     },
+     {
+      "timber": "american-oak",
+      "amount": 1430
+     },
+     {
+      "timber": "blackwood",
+      "amount": 1490
+     },
+     {
+      "timber": "walnut",
+      "amount": 1820
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-moo",
+  "sizeLabel": "Length",
+  "defaultTimber": "messmate",
+  "startSize": "1800",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "label": "1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 1600
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 1600
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 1600
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 1750
+     },
+     {
+      "timber": "american-oak",
+      "amount": 1750
+     },
+     {
+      "timber": "blackwood",
+      "amount": 1830
+     },
+     {
+      "timber": "walnut",
+      "amount": 2180
+     }
+    ]
+   },
+   {
+    "label": "1500",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 1750
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 1750
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 1750
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 1920
+     },
+     {
+      "timber": "american-oak",
+      "amount": 1920
+     },
+     {
+      "timber": "blackwood",
+      "amount": 2000
+     },
+     {
+      "timber": "walnut",
+      "amount": 2380
+     }
+    ]
+   },
+   {
+    "label": "1800",
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 1900
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 1900
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 1900
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 2080
+     },
+     {
+      "timber": "american-oak",
+      "amount": 2080
+     },
+     {
+      "timber": "blackwood",
+      "amount": 2170
+     },
+     {
+      "timber": "walnut",
+      "amount": 2570
+     }
+    ]
+   },
+   {
+    "label": "2000",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 2000
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 2000
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 2000
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 2190
+     },
+     {
+      "timber": "american-oak",
+      "amount": 2190
+     },
+     {
+      "timber": "blackwood",
+      "amount": 2290
+     },
+     {
+      "timber": "walnut",
+      "amount": 2700
+     }
+    ]
+   },
+   {
+    "label": "2400",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 2200
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 2200
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 2200
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 2410
+     },
+     {
+      "timber": "american-oak",
+      "amount": 2410
+     },
+     {
+      "timber": "blackwood",
+      "amount": 2520
+     },
+     {
+      "timber": "walnut",
+      "amount": 2960
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "cubes",
+  "defaultTimber": "messmate",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 600
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 600
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 600
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 660
+     },
+     {
+      "timber": "american-oak",
+      "amount": 660
+     },
+     {
+      "timber": "blackwood",
+      "amount": 690
+     },
+     {
+      "timber": "walnut",
+      "amount": 780
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-daisy",
+  "sizeLabel": "Length",
+  "defaultTimber": "messmate",
+  "startSize": "2000",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "label": "2000",
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 2090
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 2090
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 2090
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 2260
+     },
+     {
+      "timber": "american-oak",
+      "amount": 2260
+     },
+     {
+      "timber": "blackwood",
+      "amount": 2340
+     },
+     {
+      "timber": "walnut",
+      "amount": 2730
+     }
+    ]
+   },
+   {
+    "label": "2500",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 2430
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 2430
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 2430
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 2630
+     },
+     {
+      "timber": "american-oak",
+      "amount": 2630
+     },
+     {
+      "timber": "blackwood",
+      "amount": 2740
+     },
+     {
+      "timber": "walnut",
+      "amount": 3170
+     }
+    ]
+   },
+   {
+    "label": "3000",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 2770
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 2770
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 2770
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 3010
+     },
+     {
+      "timber": "american-oak",
+      "amount": 3010
+     },
+     {
+      "timber": "blackwood",
+      "amount": 3130
+     },
+     {
+      "timber": "walnut",
+      "amount": 3610
+     }
+    ]
+   },
+   {
+    "label": "3500",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 3110
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 3110
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 3110
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 3380
+     },
+     {
+      "timber": "american-oak",
+      "amount": 3380
+     },
+     {
+      "timber": "blackwood",
+      "amount": 3520
+     },
+     {
+      "timber": "walnut",
+      "amount": 4060
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "mr-elliot",
+  "sizeLabel": "Length",
+  "defaultTimber": "messmate",
+  "startSize": "2000",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "label": "2000",
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 2090
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 2090
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 2090
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 2260
+     },
+     {
+      "timber": "american-oak",
+      "amount": 2260
+     },
+     {
+      "timber": "blackwood",
+      "amount": 2340
+     },
+     {
+      "timber": "walnut",
+      "amount": 2730
+     }
+    ]
+   },
+   {
+    "label": "2500",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 2430
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 2430
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 2430
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 2630
+     },
+     {
+      "timber": "american-oak",
+      "amount": 2630
+     },
+     {
+      "timber": "blackwood",
+      "amount": 2740
+     },
+     {
+      "timber": "walnut",
+      "amount": 3170
+     }
+    ]
+   },
+   {
+    "label": "3000",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 2770
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 2770
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 2770
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 3010
+     },
+     {
+      "timber": "american-oak",
+      "amount": 3010
+     },
+     {
+      "timber": "blackwood",
+      "amount": 3130
+     },
+     {
+      "timber": "walnut",
+      "amount": 3610
+     }
+    ]
+   },
+   {
+    "label": "3500",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 3110
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 3110
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 3110
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 3380
+     },
+     {
+      "timber": "american-oak",
+      "amount": 3380
+     },
+     {
+      "timber": "blackwood",
+      "amount": 3520
+     },
+     {
+      "timber": "walnut",
+      "amount": 4060
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-nelly",
+  "defaultTimber": "messmate",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 800
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 800
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 800
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 880
+     },
+     {
+      "timber": "american-oak",
+      "amount": 880
+     },
+     {
+      "timber": "blackwood",
+      "amount": 920
+     },
+     {
+      "timber": "walnut",
+      "amount": 1040
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-soo",
+  "defaultTimber": "messmate",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 225
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 230
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 230
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 250
+     },
+     {
+      "timber": "american-oak",
+      "amount": 250
+     },
+     {
+      "timber": "blackwood",
+      "amount": 260
+     },
+     {
+      "timber": "walnut",
+      "amount": 290
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-ruby",
+  "sizeLabel": "Size (mm)",
+  "defaultTimber": "american-oak",
+  "startSize": "2000 x 1000",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "label": "2000 x 1000",
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 3350
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 3350
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 3350
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 3650
+     },
+     {
+      "timber": "american-oak",
+      "amount": 3650
+     },
+     {
+      "timber": "blackwood",
+      "amount": 3850
+     },
+     {
+      "timber": "walnut",
+      "amount": 4580
+     }
+    ]
+   },
+   {
+    "label": "2200 x 1000",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 3650
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 3650
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 3650
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 3950
+     },
+     {
+      "timber": "american-oak",
+      "amount": 3950
+     },
+     {
+      "timber": "blackwood",
+      "amount": 4150
+     },
+     {
+      "timber": "walnut",
+      "amount": 4880
+     }
+    ]
+   },
+   {
+    "label": "2500 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 4150
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 4150
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 4150
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 4450
+     },
+     {
+      "timber": "american-oak",
+      "amount": 4450
+     },
+     {
+      "timber": "blackwood",
+      "amount": 4650
+     },
+     {
+      "timber": "walnut",
+      "amount": 5380
+     }
+    ]
+   },
+   {
+    "label": "3000 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 4750
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 4750
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 4750
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 5050
+     },
+     {
+      "timber": "american-oak",
+      "amount": 5050
+     },
+     {
+      "timber": "blackwood",
+      "amount": 5250
+     },
+     {
+      "timber": "walnut",
+      "amount": 5980
+     }
+    ]
+   },
+   {
+    "label": "3500 x 1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 5350
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 5350
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 5350
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 5650
+     },
+     {
+      "timber": "american-oak",
+      "amount": 5650
+     },
+     {
+      "timber": "blackwood",
+      "amount": 5850
+     },
+     {
+      "timber": "walnut",
+      "amount": 6580
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-arnold",
+  "defaultTimber": "messmate",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 1680
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 1680
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 1680
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 1850
+     },
+     {
+      "timber": "american-oak",
+      "amount": 1850
+     },
+     {
+      "timber": "blackwood",
+      "amount": 1930
+     },
+     {
+      "timber": "walnut",
+      "amount": 2310
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-ron",
+  "defaultTimber": "recycled-messmate",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 1270
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 1270
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 1270
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 1400
+     },
+     {
+      "timber": "american-oak",
+      "amount": 1400
+     },
+     {
+      "timber": "blackwood",
+      "amount": 1460
+     },
+     {
+      "timber": "walnut",
+      "amount": 1780
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-zoltan",
+  "defaultTimber": "messmate",
+  "priceSuffix": "a pair",
+  "rows": [
+   {
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 1200
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 1200
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 1200
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 1320
+     },
+     {
+      "timber": "american-oak",
+      "amount": 1320
+     },
+     {
+      "timber": "blackwood",
+      "amount": 1380
+     },
+     {
+      "timber": "walnut",
+      "amount": 1690
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "the-don",
+  "sizeLabel": "Length",
+  "defaultTimber": "australian-chestnut",
+  "startSize": "1400",
+  "priceSuffix": "",
+  "rows": [
+   {
+    "label": "1200",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 1530
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 1530
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 1530
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 1690
+     },
+     {
+      "timber": "american-oak",
+      "amount": 1690
+     },
+     {
+      "timber": "blackwood",
+      "amount": 1760
+     },
+     {
+      "timber": "walnut",
+      "amount": 2120
+     }
+    ]
+   },
+   {
+    "label": "1400",
+    "isStart": true,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 1650
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 1650
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 1650
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 1820
+     },
+     {
+      "timber": "american-oak",
+      "amount": 1820
+     },
+     {
+      "timber": "blackwood",
+      "amount": 1900
+     },
+     {
+      "timber": "walnut",
+      "amount": 2280
+     }
+    ]
+   },
+   {
+    "label": "1500",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 1710
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 1710
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 1710
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 1880
+     },
+     {
+      "timber": "american-oak",
+      "amount": 1880
+     },
+     {
+      "timber": "blackwood",
+      "amount": 1970
+     },
+     {
+      "timber": "walnut",
+      "amount": 2350
+     }
+    ]
+   },
+   {
+    "label": "1800",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 1890
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 1890
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 1890
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 2070
+     },
+     {
+      "timber": "american-oak",
+      "amount": 2070
+     },
+     {
+      "timber": "blackwood",
+      "amount": 2170
+     },
+     {
+      "timber": "walnut",
+      "amount": 2580
+     }
+    ]
+   },
+   {
+    "label": "2000",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 2000
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 2000
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 2000
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 2200
+     },
+     {
+      "timber": "american-oak",
+      "amount": 2200
+     },
+     {
+      "timber": "blackwood",
+      "amount": 2300
+     },
+     {
+      "timber": "walnut",
+      "amount": 2730
+     }
+    ]
+   },
+   {
+    "label": "2400",
+    "isStart": false,
+    "prices": [
+     {
+      "timber": "messmate",
+      "amount": 2240
+     },
+     {
+      "timber": "blackbutt",
+      "amount": 2240
+     },
+     {
+      "timber": "australian-chestnut",
+      "amount": 2240
+     },
+     {
+      "timber": "recycled-messmate",
+      "amount": 2460
+     },
+     {
+      "timber": "american-oak",
+      "amount": 2460
+     },
+     {
+      "timber": "blackwood",
+      "amount": 2580
+     },
+     {
+      "timber": "walnut",
+      "amount": 3040
+     }
+    ]
+   }
+  ]
+ }
+]
