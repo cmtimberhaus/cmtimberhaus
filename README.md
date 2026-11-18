@@ -22,7 +22,7 @@ All site content lives in Sanity (project `ka21otlh`, dataset `production`, publ
 
 - **Site settings** (single document): hero photo and text, About, home page category tiles, per-category call-to-action text, Materials page intro, the enquiry section, contact details and the "Est." year.
 - **Timbers** (`material` documents): name, kind, description, summary and photo, in the order they appear on /materials.
-- **Pieces**: grouped by category in the Studio, ordered by drag and drop. Each piece references its available timbers; the order of that list is the order on the piece page.
+- **Pieces**: grouped by category in the Studio, ordered by drag and drop. Each piece references its available timbers; the order of that list is the order on the piece page. Pieces can also carry a price table (see "Prices by timber and size").
 
 `src/lib/content.ts` is the only file that reads content. It fetches everything once per build and **fails the build** on: missing site settings or required fields, duplicate piece or timber slugs, a piece that references a timber that no longer exists, pieces without photos or timbers, and timber, tile or About photos without a description (alt text). Builds read live Sanity data and must not rely on `.next/cache`: the query is sent with `next: { revalidate: 1 }`, so if the host restores a build cache the content still refreshes.
 
@@ -71,6 +71,71 @@ SANITY_WRITE_TOKEN=... node --experimental-strip-types scripts/import-content.mt
 ```
 
 Use a token with the Editor role and revoke it afterwards. Never commit it.
+
+## Prices by timber and size
+
+A piece can carry a price table (the **Prices by timber and size** field in the Studio). The piece page then shows a Timber choice, a size choice when the piece has sizes, and the exact price of the selected combination. The category cards show "From" plus the lowest price in the table. A piece without a table (today only The Quin) keeps the plain **Price on the card** and **Price on the piece page** fields and renders as before.
+
+When a table exists, the two text price fields are no longer read and the Studio hides them: the table is the only source of truth. **Price note** is still shown under the price (for example "Including installation"), unless the piece has a bundle (pair or set of 8), in which case the page shows "Or $X for a pair, saving $Y" worked out from the table and the Studio hides the price note.
+
+Fields of the table:
+
+| Field | Meaning |
+| --- | --- |
+| Size name | "Size (mm)" or "Length". Leave empty when only the timber changes the price (one row, no size). |
+| Timber shown first | The timber selected when the page opens. Must be one of the piece's Available timbers. |
+| Words after the price on the piece page | For example "each" or "a pair". Optional. |
+| Words after the price on the card | For example "installed" or "a pair". Optional. |
+| Bundle price | "Pair" or "Set of 8" and the number of pieces. When set, every price also needs a bundle price. |
+| Sizes | One row per size (or one row without a size). Each row has a price for every available timber, and exactly one row is the **Starting size**. |
+
+### How Charlie edits a price
+
+1. Studio, Pieces, open the piece, **Prices by timber and size**.
+2. Open the size row, open the timber, change **Price (whole dollars)**. Whole dollars only, above 0.
+3. Publish. The site rebuilds (see "Publish triggers a rebuild") and the card and the page follow.
+
+The Studio refuses to publish when a timber is priced twice in a row, a row misses one of the available timbers, a size is repeated, or there is not exactly one starting size that has a price for the first timber. If a timber is added to or removed from **Available timbers**, update the rows too; the build stops with a message naming the piece and the missing price rather than showing a wrong one.
+
+### Enquiry links
+
+The piece page button opens `/enquire?piece=<slug>&timber=<timber slug>&size=<size>`, also without JavaScript (the choices are a plain GET form). The enquiry form ignores values the piece does not offer, and prefills "Hi, I'm interested in The Yorkshire in Recycled Messmate, 2000 x 1000 mm (guide price $4,300)." The timber, size and guide price are sent with the enquiry and appear as "Timber:", "Size:" and "Guide price:" lines in the email. The guide price is what the visitor saw, it is informational only, and the server never prices anything from it.
+
+### Loading the tables (`scripts/import-pricing.mts`)
+
+`content/pricing.json` holds the 347 prices checked against the original site. The script copies them into the pieces.
+
+```
+node --experimental-strip-types scripts/import-pricing.mts          # dry run (default): reads, validates, prints, writes nothing
+```
+
+The dry run lists, per piece, what would be set, the card text before and after, and any piece it would skip. It validates every combination (all timbers in every row, one starting size, whole amounts, bundle prices) and exits with an error if anything is wrong.
+
+To write (needs a token with the Editor role, revoke it afterwards, never commit it):
+
+```
+SANITY_WRITE_TOKEN=... node --experimental-strip-types scripts/import-pricing.mts --apply --yes
+```
+
+- `--apply` without `--yes` refuses to run. The token is read from the environment, and only for `--apply`.
+- Each piece is patched with `setIfMissing` on `pricing` and the revision that was read (`ifRevisionId`): a table that already exists is left alone, and a piece edited in the Studio in the meantime makes the transaction fail instead of being overwritten. There is no replace mode.
+- A piece with an unpublished draft (`drafts.piece-...`) is skipped and reported. Publish or discard the draft in the Studio, then run the script again.
+- After applying, the next build (or a publish) shows the new prices. Take a dataset export first (see "Roles and the free plan").
+
+### Checking the price selector
+
+```
+NEXT_PUBLIC_SITE_URL=http://localhost:4173 npm run build        # live content, no price tables yet: site unchanged
+node --experimental-strip-types --test tests/pricing.test.mjs   # price functions and table validation
+node --experimental-strip-types tests/enquiry.test.mjs          # enquiry function, Resend replaced by a recorder
+
+NODE_OPTIONS="--import ./tests/pricing-fixture.mjs" NEXT_PUBLIC_SITE_URL=http://localhost:4173 npm run build
+node tests/pricing.e2e.mjs <out folder of a build without tables>   # clicks every timber and size, needs Playwright
+```
+
+Delete `.next` before and after a fixture build (`rm -rf .next`): Next caches the Sanity response there, and a cached fixture response would otherwise be replayed by the next normal build.
+
+`tests/pricing-fixture.mjs` is test-only: it reads the live content and merges `content/pricing.json` into the pieces in memory. It never writes to Sanity and is not part of the site.
 
 ## Deploy (Cloudflare Pages)
 
