@@ -2,6 +2,7 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 import { orderRankField } from "@sanity/orderable-document-list";
 import { optionalText, requiredText } from "./fields";
 import { limits } from "./limits";
+import { hasBundle, hasPricing, pricingField } from "./pricing";
 
 export const categoryOptions = [
   { title: "Dining", value: "dining" },
@@ -58,20 +59,25 @@ export const piece = defineType({
       title: "Price on the card",
       type: "string",
       description: 'Plain text, for example "From $4,300".',
+      hidden: hasPricing,
       validation: requiredText("piecePrice"),
     }),
     defineField({
       name: "pagePrice",
       title: "Price on the piece page",
       type: "string",
+      hidden: hasPricing,
       validation: requiredText("piecePrice"),
     }),
     defineField({
       name: "priceNote",
       title: "Price note (optional)",
       type: "string",
+      description: "Hidden when the price table has a pair or set of 8, because the page then writes that line from the table.",
+      hidden: hasBundle,
       validation: optionalText("piecePriceNote"),
     }),
+    pricingField,
     defineField({
       name: "note",
       title: "Note under the price (optional)",

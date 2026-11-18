@@ -1,4 +1,6 @@
 import type { ImageSource } from "./images";
+import { cardPriceText, fromPriceText, type PiecePricing } from "./pricing";
+import { buildPricing, type RawPricing } from "./pricing-content";
 import { IMAGE_PROJECTION, fetchSanity, toImageSource, type RawImage } from "./sanity";
 
 /**
@@ -38,9 +40,13 @@ export interface Piece {
   category: Category;
   cardSubtitle: string;
   subtitle: string;
+  /** Derived from the price table when the piece has one. */
   cardPrice: string;
+  /** Derived from the price table when the piece has one: the "from" price, used in page descriptions. */
   pagePrice: string;
   priceNote: string | null;
+  /** Null when the piece has no price table and keeps the plain text prices. */
+  pricing: PiecePricing | null;
   note: string | null;
   description: string[];
   specs: PieceSpec[];
@@ -153,6 +159,7 @@ interface RawPiece {
   cardPrice: string | null;
   pagePrice: string | null;
   priceNote: string | null;
+  pricing: RawPricing | null;
   note: string | null;
   description: string | null;
   specs: { label: string | null; value: string | null }[] | null;
@@ -196,6 +203,14 @@ const QUERY = `{
   "pieces": *[_type == "piece"] | order(orderRank){
     _id, name, "slug": slug.current, category, cardSubtitle, subtitle, cardPrice, pagePrice,
     priceNote, note, description, specs, galleryLayout,
+    "pricing": pricing{
+      sizeLabel, priceSuffix, cardSuffix, bundle,
+      "defaultTimber": defaultTimber->slug.current,
+      "rows": rows[]{
+        label, isStart,
+        "prices": prices[]{ "timber": timber->slug.current, amount, bundleAmount }
+      }
+    },
     "availableTimbers": availableTimbers[]->{ name, "slug": slug.current },
     "images": images[]{ "image": image${IMAGE_PROJECTION} },
     "cardCover": cardCover${IMAGE_PROJECTION}
@@ -287,6 +302,13 @@ function buildPiece(raw: RawPiece, problems: Problems): Piece | null {
   if (gallery.length === 0) problems.push(`${where}: no photos`);
   const [firstPhoto, ...otherPhotos] = gallery;
   const cardFirst = raw.cardCover ? photo(raw.cardCover, `${where} card photo`, problems) : firstPhoto;
+  const availableTimbers = buildTimbers(raw, where, problems);
+  const pricing = buildPricing(
+    raw.pricing,
+    availableTimbers.map((timber) => timber.slug),
+    where,
+    problems,
+  );
 
   return {
     slug: text(raw.slug, `${where} slug`, problems),
@@ -294,9 +316,10 @@ function buildPiece(raw: RawPiece, problems: Problems): Piece | null {
     category: raw.category,
     cardSubtitle: text(raw.cardSubtitle, `${where} cardSubtitle`, problems),
     subtitle: text(raw.subtitle, `${where} subtitle`, problems),
-    cardPrice: text(raw.cardPrice, `${where} cardPrice`, problems),
-    pagePrice: text(raw.pagePrice, `${where} pagePrice`, problems),
+    cardPrice: pricing ? cardPriceText(pricing) : text(raw.cardPrice, `${where} cardPrice`, problems),
+    pagePrice: pricing ? fromPriceText(pricing) : text(raw.pagePrice, `${where} pagePrice`, problems),
     priceNote: raw.priceNote || null,
+    pricing,
     note: raw.note || null,
     description: text(raw.description, `${where} description`, problems)
       .split(/\n{2,}/)
@@ -306,7 +329,7 @@ function buildPiece(raw: RawPiece, problems: Problems): Piece | null {
       label: text(spec.label, `${where} spec ${index + 1} label`, problems),
       value: text(spec.value, `${where} spec ${index + 1} value`, problems),
     })),
-    availableTimbers: buildTimbers(raw, where, problems),
+    availableTimbers,
     cardImages: cardFirst ? [cardFirst, ...otherPhotos] : [],
     galleryImages: gallery,
     ...gridFor(raw.galleryLayout, gallery.length),
