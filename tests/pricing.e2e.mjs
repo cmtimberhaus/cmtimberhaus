@@ -26,6 +26,8 @@ const CARD_SUFFIX = { "the-rex": "each", "the-study-nook": "installed", "the-nel
 
 let failures = 0;
 let checks = 0;
+/** The price each piece page shows when it opens, without any click: slug to "$4,000" (suffix removed). */
+const openedOn = new Map();
 function check(condition, message) {
   checks += 1;
   if (!condition) {
@@ -116,6 +118,7 @@ async function checkPage(browser, entry) {
 
   const names = await timberNames(page);
   check(Object.keys(names).length === entry.rows[0].prices.length, `${entry.slug}: timber radio count`);
+  await checkOpensOnCheapest(page, entry, names);
   check((await page.locator("[aria-live=polite] .pd-price").count()) === 1, `${entry.slug}: price is inside aria-live=polite`);
   check((await page.locator('fieldset > legend', { hasText: "Timber" }).count()) === 1, `${entry.slug}: Timber legend`);
   if (entry.sizeLabel) {
@@ -148,6 +151,25 @@ async function checkPage(browser, entry) {
   check(errors.length === 0, `${entry.slug}: console errors ${errors.join(" | ")}`);
   await context.close();
   await checkNoJs(browser, entry, url);
+}
+
+/** The page opens on the first size and, in the order the page lists the timbers, the first timber with the lowest price in that row. */
+async function checkOpensOnCheapest(page, entry, names) {
+  const firstRow = entry.rows[0];
+  const lowest = Math.min(...firstRow.prices.map((price) => price.amount));
+  const wantedTimber = Object.keys(names).find((timber) => firstRow.prices.some((price) => price.timber === timber && price.amount === lowest));
+  const wantedSize = firstRow.label ?? null;
+  const tableMinimum = Math.min(...cells(entry).map((cell) => cell.amount));
+  check(lowest === tableMinimum, `${entry.slug}: first row's lowest price ${lowest} is not the table minimum ${tableMinimum}`);
+  check(firstRow.isStart && entry.rows.filter((row) => row.isStart).length === 1, `${entry.slug}: only the first row is the starting size`);
+  check(entry.defaultTimber === wantedTimber, `${entry.slug}: defaultTimber ${entry.defaultTimber} vs cheapest ${wantedTimber}`);
+  const timber = await page.locator('input[name="timber"]:checked').getAttribute("value");
+  const size = entry.sizeLabel ? await page.locator('input[name="size"]:checked').getAttribute("value") : null;
+  check(timber === wantedTimber, `${entry.slug}: opens on timber ${timber}, cheapest is ${wantedTimber}`);
+  check(size === wantedSize, `${entry.slug}: opens on size ${size}, smallest is ${wantedSize}`);
+  const shown = (await page.locator(".pd-price").innerText()).trim();
+  check(shown === `${money(lowest)}${entry.priceSuffix ? ` ${entry.priceSuffix}` : ""}`, `${entry.slug}: opens on ${shown}, cheapest is ${money(lowest)}`);
+  openedOn.set(entry.slug, shown.split(" ")[0]);
 }
 
 /** The form fills the message in after it loads, so wait for it. */
@@ -233,6 +255,7 @@ async function checkCards(browser, baselineOut) {
       const slug = href.split("/").pop();
       const entry = pricing.find((candidate) => candidate.slug === slug);
       if (entry) check(text === expectedCard(entry), `${slug}: card "${text}" vs "${expectedCard(entry)}"`);
+      if (entry) check(text.startsWith(`From ${openedOn.get(slug)}`), `${slug}: card "${text}" does not start with "From ${openedOn.get(slug)}", the price the page opens on`);
       if (baselineOut) {
         const baseline = readFileSync(path.join(baselineOut, `${category}.html`), "utf8");
         const old = new RegExp(`${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}</h2><span class="ds">[^<]*</span><span class="pr">([^<]*)</span>`, "i").exec(baseline)?.[1];

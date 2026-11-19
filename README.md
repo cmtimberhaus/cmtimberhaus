@@ -122,11 +122,23 @@ SANITY_WRITE_TOKEN=... node --experimental-strip-types scripts/import-pricing.mt
 - A piece with an unpublished draft (`drafts.piece-...`) is skipped and reported. Publish or discard the draft in the Studio, then run the script again.
 - After applying, the next build (or a publish) shows the new prices. Take a dataset export first (see "Roles and the free plan").
 
+### Opening on the cheapest option (`scripts/set-cheapest-defaults.mts`)
+
+A piece page opens on the smallest size (the first row) and on the first timber, in the order of **Available timbers**, that has the lowest price in that row. `content/pricing.json` follows this rule, and `tests/set-cheapest-defaults.test.mjs` fails if it stops doing so. The card price (the table minimum) is therefore always the price the page opens on.
+
+```
+node --experimental-strip-types scripts/set-cheapest-defaults.mts          # dry run (default): current and new default per piece, writes nothing
+SANITY_WRITE_TOKEN=... node --experimental-strip-types scripts/set-cheapest-defaults.mts --apply --yes
+```
+
+`--apply` patches only `pricing.defaultTimber` and the **Starting size** flags, in one transaction with `ifRevisionId` per piece. Pieces with an unpublished draft, without a live price table, or whose live prices differ from `content/pricing.json` are skipped and reported. `scripts/extract-pricing.mts` still derives the defaults from the original site, so do not re-run it over `content/pricing.json` without running this script afterwards.
+
 ### Checking the price selector
 
 ```
 NEXT_PUBLIC_SITE_URL=http://localhost:4173 npm run build        # live content, no price tables yet: site unchanged
 node --experimental-strip-types --test tests/pricing.test.mjs   # price functions and table validation
+node --experimental-strip-types --test tests/set-cheapest-defaults.test.mjs   # cheapest-default rule
 node --experimental-strip-types tests/enquiry.test.mjs          # enquiry function, Resend replaced by a recorder
 
 NODE_OPTIONS="--import ./tests/pricing-fixture.mjs" NEXT_PUBLIC_SITE_URL=http://localhost:4173 npm run build

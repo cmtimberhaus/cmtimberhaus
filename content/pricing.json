@@ -2,7 +2,7 @@
  {
   "slug": "the-yorkshire",
   "sizeLabel": "Size (mm)",
-  "defaultTimber": "recycled-messmate",
+  "defaultTimber": "messmate",
   "startSize": "2000 x 1000",
   "priceSuffix": "",
   "rows": [
@@ -217,7 +217,7 @@
  {
   "slug": "the-coombes",
   "sizeLabel": "Size (mm)",
-  "defaultTimber": "american-oak",
+  "defaultTimber": "messmate",
   "startSize": "2000 x 1000",
   "priceSuffix": "",
   "rows": [
@@ -396,7 +396,7 @@
  {
   "slug": "the-elevation",
   "sizeLabel": "Size (mm)",
-  "defaultTimber": "american-oak",
+  "defaultTimber": "messmate",
   "startSize": "2000 x 1000",
   "priceSuffix": "",
   "rows": [
@@ -614,7 +614,7 @@
  },
  {
   "slug": "the-waratah",
-  "defaultTimber": "blackwood",
+  "defaultTimber": "messmate",
   "priceSuffix": "each",
   "bundle": {
    "label": "Pair",
@@ -665,7 +665,7 @@
  },
  {
   "slug": "the-annabella",
-  "defaultTimber": "american-oak",
+  "defaultTimber": "messmate",
   "priceSuffix": "",
   "rows": [
    {
@@ -752,7 +752,7 @@
   "rows": [
    {
     "label": "1200",
-    "isStart": false,
+    "isStart": true,
     "prices": [
      {
       "timber": "messmate",
@@ -820,7 +820,7 @@
    },
    {
     "label": "1800",
-    "isStart": true,
+    "isStart": false,
     "prices": [
      {
       "timber": "messmate",
@@ -1335,7 +1335,7 @@
  {
   "slug": "the-ruby",
   "sizeLabel": "Size (mm)",
-  "defaultTimber": "american-oak",
+  "defaultTimber": "messmate",
   "startSize": "2000 x 1000",
   "priceSuffix": "",
   "rows": [
@@ -1553,7 +1553,7 @@
  },
  {
   "slug": "the-ron",
-  "defaultTimber": "recycled-messmate",
+  "defaultTimber": "messmate",
   "priceSuffix": "",
   "rows": [
    {
@@ -1634,13 +1634,13 @@
  {
   "slug": "the-don",
   "sizeLabel": "Length",
-  "defaultTimber": "australian-chestnut",
+  "defaultTimber": "messmate",
   "startSize": "1400",
   "priceSuffix": "",
   "rows": [
    {
     "label": "1200",
-    "isStart": false,
+    "isStart": true,
     "prices": [
      {
       "timber": "messmate",
@@ -1674,7 +1674,7 @@
    },
    {
     "label": "1400",
-    "isStart": true,
+    "isStart": false,
     "prices": [
      {
       "timber": "messmate",
